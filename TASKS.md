@@ -1,42 +1,43 @@
-# TASKS: blazar-forecast-test
+# TASKS: blazar-forecast-test (v2)
 
-**Priority: HIGH (weeks 1–2).** Work top to bottom. Each task has a "done when" check. Tick boxes in this file as tasks complete. Read PROPOSAL.md and CLAUDE.md first.
+**Priority: HIGH (weeks 1–2).** Work top to bottom. Each task has a "done when" check. Tick boxes as tasks complete. Read PROPOSAL.md (v2) and CLAUDE.md first.
 
 ## Phase 0: Setup
-- [ ] **T0.1** Create `requirements.txt` (numpy, scipy, astropy, pandas, matplotlib, emcee, requests, tqdm) and a `src/config.py` with paths.
-  *Done when:* `pip install -r requirements.txt` works on a clean venv.
+- [ ] **T0.1** Create `requirements.txt` (numpy, scipy, astropy, pandas, matplotlib, emcee, requests, tqdm) and `src/config.py`.
 
-## Phase 1: Data
-- [ ] **T1.1** Build the candidate list in `data/candidates.csv`: the 46 sources from Rico et al. 2025 (arXiv:2412.05812), with 4FGL name, common name, class (BLL/FSRQ), redshift, period ± error, and a flag for whether a forecast was published (28).
-  *Done when:* 46 rows; periods match the paper's table.
-- [ ] **T1.2** Write `src/download_lcr.py` to fetch **monthly** light curves from the Fermi LAT Light Curve Repository API for every candidate. Cache them as CSV under `data/lcr/`. Keep TS, flux, flux error and upper-limit flags.
-  *Done when:* light curves exist for all candidates that are in the LCR (log any that are missing), covering Aug 2008 → latest.
-- [ ] **T1.3** Write `notebooks/01_inspect.ipynb` to plot every light curve, with a vertical line at 2020-12-10 (the end of Rico's data).
+## Phase 1: Gate check and rules (do first)
+- [ ] **T1.1 GATE.** Read Peñil et al. 2026 (arXiv:2606.15676) §8.1, Table A7 and Table 3. Write `notes/penil2026_rules.md` containing:
+  - (a) the exact definitions of "high state" and "match window";
+  - (b) whether they compared the hit rate with any chance baseline;
+  - (c) all predicted-vs-observed peaks in a CSV, `data/penil_tableA7.csv`;
+  - (d) their new predictions in `data/penil_table3_predictions.csv`.
 
-## Phase 2: Reproduce (positive control)
-- [ ] **T2.1** Write `src/periodogram.py` to compute a Lomb–Scargle periodogram on pre-2021 data, with a choice of upper-limit handling (drop / set to UL / censored).
-  *Done when:* PG 1553+113 gives P ≈ 2.2 yr.
-- [ ] **T2.2** Reproduce the periods for all 46 candidates. Table: ours vs Rico's.
-  *Done when:* `results/period_reproduction.csv` is written; discrepancies above 10% are listed and explained.
+  *Done when:* the notes answer (b) clearly. **If they already calibrated the hit rate, STOP Part B and flag it in the notes.**
+- [ ] **T1.2** Build `data/candidates.csv` with the 46 Rico+2025 sources (4FGL, name, period). The list is in the research agent's report; check it against Rico Table 2.
+- [ ] **T1.3 Pre-registration.** Write `preregistration/predictions_2026.md` listing:
+  - the sources and predicted windows from Table 3;
+  - the scoring rule;
+  - the data cutoff for scoring;
+  - the planned statistics.
 
-## Phase 3: Forecasts
-- [ ] **T3.1** Make our own forecasts in `src/forecast.py`: fit sinusoid plus mean (emcee) to 2008–2020 data and predict peak times for 2021–2026 with 68%/95% windows.
-- [ ] **T3.2** Digitise Rico Appendix C forecasts into `data/rico_forecasts.csv` if author tables are not available. Record the digitisation uncertainty.
-  *Human task:* the student emails the authors for the tables.
+  Commit it **before** looking at any light-curve data after 2026-06.
 
-## Phase 4: Test
-- [ ] **T4.1** Write `src/measure_peaks.py` to locate observed 2021–2026 peaks (Bayesian blocks or Gaussian fits) with uncertainties.
-- [ ] **T4.2** Compute the hit/miss table of observed peaks vs forecast windows for each source.
-  *Done when:* `results/forecast_test.csv` is written.
-- [ ] **T4.3** Persistence test: Lomb–Scargle on post-2021 data only; compare with the pre-2021 period.
+## Phase 2: Data and reproduction
+- [ ] **T2.1** Write `src/download_lcr.py` to fetch monthly Light Curve Repository light curves for all 49 sources in Peñil et al. Cache under `data/lcr/`.
+- [ ] **T2.2** Write `src/match.py` to implement the Peñil matching rule exactly.
+  *Done when:* it reproduces about 19/59 hits; differences are explained in `results/reproduction.md`.
 
-## Phase 5: Red-noise calibration (critical)
-- [ ] **T5.1** Write `src/simulate.py`: fit a power-law PSD to each pre-2021 light curve, then use Emmanoulopoulos et al. 2013 simulations that match the PSD and flux PDF. Sample with the real cadence and gaps.
-- [ ] **T5.2** Run the full forecast→test pipeline on at least 1,000 simulations per source to get the chance hit rate.
-- [ ] **T5.3** Population test: observed hit count vs the red-noise distribution (binomial / permutation p-value).
-  *Done when:* `results/population_test.json` is written and a figure is in `results/`.
+## Phase 3: Null calibration (main result)
+- [ ] **T3.1** Write `src/psd_fit.py` to fit power-law and bending power-law PSDs to each source's pre-forecast data.
+- [ ] **T3.2** Write `src/simulate.py`: Emmanoulopoulos et al. 2013 light curves, ≥1,000 (target 10,000) per source, matching the PSD and flux PDF. Resample to the real cadence and gaps, and apply the same upper-limit rule.
+- [ ] **T3.3** Red-noise null: forecast→match on the simulations, giving a hit-count distribution.
+- [ ] **T3.4** Randomised-forecast null: phase-shift and period-scramble the forecasts against the real light curves.
+- [ ] **T3.5** Compute p-values for 19/59 under both nulls, plus sensitivity to window width (±0.1/0.2/0.3 period).
+  *Done when:* `results/null_calibration.json` and `results/fig_hitrate_null.png` exist.
 
-## Phase 6: Paper
-- [ ] **T6.1** Make the figures: (a) PG 1553+113 forecast vs observed; (b) hit rate vs red-noise distribution.
-- [ ] **T6.2** Write a results summary in `paper/notes.md` (bullet facts with numbers). **The student writes the paper text personally**, because arXiv bans AI-written submissions.
-- [ ] **T6.3** RNAAS LaTeX template in `paper/`.
+## Phase 4: Paper
+- [ ] **T4.1** Write `paper/notes.md` with bullet results and numbers. **The student writes the paper text personally.**
+- [ ] **T4.2** Set up the RNAAS LaTeX template in `paper/`.
+
+## Phase 5: Part C (2027)
+- [ ] **T5.1** Write `src/score_preregistered.py`, run only after the data cutoff in the pre-registration.

@@ -1,122 +1,127 @@
-# Research Proposal
+# Research Proposal (v2, revised 22 Nov 2026)
 
-## Do Gamma-Ray Blazar Periodicities Keep Time? An Out-of-Sample Test of Published Forecasts with Six Years of New Fermi-LAT Data
+## How Often Would Chance Alone "Confirm" a Blazar Periodicity Forecast? A Null Calibration of Gamma-Ray Forecast Tests, and a Pre-Registered Test of the 2026 Predictions
 
 **Author:** Berkh (independent student researcher)
 **Mentor / prospective co-author:** [mentor name] (cosmology & black holes)
 **Field:** High-energy astrophysics / supermassive black hole binaries
-**Planned duration:** 3–4 weeks
-**Status:** Proposal, Nov 2026
+**Planned duration:** 2–3 weeks for Part A–B, plus a short follow-up for Part C in early 2027
+**Status:** Proposal
+
+> **Why v2?** Version 1 proposed the first out-of-sample test of the Rico et al. (2025) forecasts. On 14 June 2026 the original authors posted that test themselves: **Peñil, Rico, Domínguez, Ajello, Buson & Adhikari, arXiv:2606.15676**. This version is reframed as an **independent statistical check** of their forecast test, plus a **pre-registered blind test** of their *new* predictions.
 
 ---
 
 ## 1. Summary
 
-Some gamma-ray blazars appear to brighten every 1–4 years. A leading explanation is a **supermassive black hole binary (SMBHB)**: two black holes orbiting each other cause the jet to wobble or the accretion rate to change periodically. If this is right, the periodicity must **keep time**: future peaks should arrive when predicted.
+Some gamma-ray blazars appear to brighten every 1–4 years. One explanation is a **supermassive black hole binary (SMBHB)**. Peñil et al. (2026) re-examined 49 periodicity candidates with more than 17 years of Fermi-LAT data. In their Section 8.1, they checked earlier forecasts against the new data. They report that **19 of 59 predicted high states (≈32%) across 30 objects are supported**, and that only 8 sources keep more than 2σ local significance. Their abstract says "some [predictions] are consistent with the new observations."
 
-Rico et al. (2025, A&A 697, A35; arXiv:2412.05812) found **46 periodicity candidates** in Fermi-LAT data from 2008 to Dec 2020. For **28** of them they **forecast the next four emission cycles**.
+**The open question:** how many forecast "hits" would we expect **by chance alone**? Suppose a match counts when an observed high state falls within ±0.2 of a period from the prediction. Then a randomly placed peak can land in that window a large fraction of the time; a rough estimate is about 40%, to be computed properly here. If the chance rate is close to 32%, the forecast "successes" carry no evidence for periodicity. If it is well below, they do.
 
-This project tests those forecasts against **about 5.8 years of Fermi-LAT data that the forecasts never saw** (Jan 2021 → Oct 2026). Predictions were made first and are tested now, which makes this a clean falsification test. Any outcome is publishable. If the peaks arrive on time, the case for SMBHBs is strengthened. If they don't, most "periodicities" are red-noise artefacts.
+This project will:
+- **(A)** reproduce their forecast-matching result;
+- **(B)** calibrate it against red-noise simulations and randomised forecasts, giving a proper p-value;
+- **(C)** **pre-register** (timestamped in this public git repo) a blind test of their new 2026–2027 predictions, to be scored as the Fermi data arrive.
 
 ## 2. Background
 
-- **Blazars** are active galactic nuclei whose relativistic jets point close to our line of sight. Their gamma-ray emission is highly variable.
-- **Periodicity and SMBHBs.** Galaxy mergers should produce SMBH pairs, and close pairs are the source of the nanohertz gravitational-wave background detected by pulsar timing arrays in 2023. Finding individual SMBHBs is a major goal, and quasi-periodic AGN light curves are one of the main ways candidates are selected.
-- **The red-noise problem.** AGN light curves are "red noise": random variability with more power on long timescales. Red noise readily produces apparent periods that last 2–3 cycles. With only about 12 years of Fermi data and periods of 1–4 years, many published candidates show only 3–6 cycles. Vaughan et al. (2016, MNRAS 461, 3145) showed how easily such false periodicities appear. **Out-of-sample prediction is the strongest available test.**
-- **PG 1553+113** is the best-established case, with a period of about 2.2 years. Its periodicity has persisted for more than 7 cycles. It serves as a positive control.
+- **Blazars** are active galaxies whose jets point near our line of sight. Their gamma-ray brightness varies strongly and randomly ("red noise").
+- **SMBHBs** are expected from galaxy mergers and are the likely source of the nanohertz gravitational-wave background seen by pulsar timing arrays (2023). Periodic AGN light curves are a main route to finding individual binaries.
+- **The red-noise trap:** red noise readily mimics 2–3 cycles of a period (Vaughan et al. 2016, MNRAS 461, 3145). Out-of-sample prediction is the strongest test, *but only if the chance rate of a "hit" is known.*
 
 ## 3. Prior work and the gap
 
 | Work | What it did | What is missing |
 |---|---|---|
-| Rico et al. 2025, A&A 697 A35 (arXiv:2412.05812) | 46 candidates from 2008–2020 Fermi data; forecasts of the next 4 cycles for 28 sources | Forecasts tested only for PG 1553+113 |
-| Hashad et al. 2026, ApJ 1009, 28 (arXiv:2602.19214) | 6 blazars, data to early 2025; only PG 1553+113 persistent | Small sample; did not test Rico's forecasts |
-| Yang et al. 2026 (arXiv:2608.24522) | 41 TeV blazars, no robust detection | No forecast test |
-| Peñil et al. (arXiv:2507.13906) | Transient-periodicity framework | Different question |
-| Abdo/Ackermann et al. 2015; PG 1553+113 papers (arXiv:2501.08015, 2603.04527) | PG 1553+113 confirmation | Single source |
+| Rico et al. 2025, A&A 697, A35 (arXiv:2412.05812) | 46 candidates (2008–2020); forecasts of the next 4 cycles for 28 sources (Table 4, Appendix C) | — |
+| **Peñil et al. 2026 (arXiv:2606.15676)** | Re-examined 49 candidates with 17.3 years of data; forecast check: 19/59 hits; 8 sources keep >2σ local significance; PG 1553+113 and S5 1044+71 >3σ local, ~0σ global | **No null calibration of the forecast hit rate** (to be confirmed by reading §8.1 closely — Task T1.1); new predictions not yet testable |
+| Hashad et al. 2026, ApJ 1009, 28 (arXiv:2602.19214) | 6 blazars; only PG 1553+113 persistent | — |
+| Yang et al. 2026 (arXiv:2608.24522) | 41 TeV blazars; no robust detection | — |
 
-**Gap:** No systematic out-of-sample test of the published Fermi blazar periodicity forecasts exists. This was confirmed by literature search in Nov 2026.
+**Gap:** (i) the forecast-test hit rate has no chance baseline; (ii) the 2026 predictions have not yet been tested by anyone.
+
+> ⚠️ **Gate:** If T1.1 finds that Peñil et al. already calibrated the forecast hit rate against simulations, Part B is dropped and the project becomes Part C only (plus PG 1553+113), or switches to the backup topic.
 
 ## 4. Research questions and hypotheses
 
-1. **Q1, timing:** For each of the 28 forecast sources, did the 2021–2026 gamma-ray peaks occur inside the forecast windows?
-   - H0 (red noise): the hit rate equals the hit rate of matched red-noise simulations.
-   - H1 (true periodicity): the hit rate is significantly above that.
-2. **Q2, persistence:** Is the period measured *only* from 2021–2026 data consistent with the pre-2021 period?
-3. **Q3, population:** What fraction of the 46 candidates still behave periodically, and does persistence correlate with the original significance, the number of cycles, or the blazar class (BL Lac vs FSRQ)?
+- **Q1:** Can we reproduce the 19/59 forecast-hit result from public Light Curve Repository data with their matching rule?
+- **Q2 (main):** Under red-noise light curves with each source's own power spectrum, and under randomised forecasts, what is the distribution of hit counts?
+  - **H0:** 19/59 is consistent with chance (p > 0.05).
+  - **H1:** 19/59 exceeds chance.
+- **Q3 (pre-registered):** Do the next predicted high states arrive in their windows?
+  - S5 1044+71: 2026-03/04
+  - TXS 0518+211: 2026-03 (phase folding) or 2028-08 (SSA)
+  - S3 0458−02: 2026-10
+  - 87GB 164812.2+524023: 2026-10
+  - PG 1553+113: 2027-03 to 06
+
+  Predicted dates must be confirmed from Peñil et al. Table 3.
 
 ## 5. Data
 
 | Source | Details |
 |---|---|
-| **Fermi LAT Light Curve Repository** (LCR; Abdollahi et al. 2023, ApJS; arXiv:2301.01607) | Ready-made 3-day, weekly and **monthly** (30-day) light curves for more than 1,500 variable 4FGL sources, updated continuously. Public JSON/CSV API. Tested Nov 2026: monthly light curves download through about mid-Oct 2026. |
-| Rico et al. 2025 | Candidate list, periods and forecasts (Appendix C figures; request tables from the authors) |
-| 4FGL-DR4 catalog | Source classes (BL Lac / FSRQ), redshifts |
+| **Fermi LAT Light Curve Repository** (Abdollahi et al. 2023, arXiv:2301.01607) | Monthly (30-day) light curves; public API; verified to run to a bin starting 2026-10-15 for J1048.4+7143, J0521.7+2112, J0501.2−0158 and J1649.4+5235 |
+| Peñil et al. 2026 | Matching rule (§8.1), predicted vs observed peaks (Table A7), new predictions (Table 3) |
+| Rico et al. 2025 | 46 candidates and periods (Table 2, list in `data/` once created), forecasts (Table 4) |
 
-Data volume is a few MB in total. No Fermi Science Tools analysis is required.
+The data total a few MB. No Fermi Science Tools are needed.
 
-## 6. Method
+## 6. Method (Python: numpy, scipy, astropy, emcee)
 
-All in Python with numpy, scipy, astropy and emcee.
-
-1. **Download** the monthly LCR light curves for all 46 candidates. Handle upper limits (TS < 4) consistently, e.g. treat them as censored data or drop them, and test both.
-2. **Reproduce** the pre-2021 periods by running a Lomb–Scargle periodogram on 2008–2020 data. Validate against Rico et al. values, with PG 1553+113 at about 2.2 years.
-3. **Obtain the forecasts:**
-   - (a) Request the forecast tables from the authors.
-   - (b) Otherwise, digitise Appendix C (e.g. WebPlotDigitizer).
-   - (c) Independently, make our own forecasts: fit a sinusoid to the 2008–2020 data only and extrapolate with uncertainties from MCMC.
-4. **Measure the observed peaks** in 2021–2026: fit Gaussian or Bayesian-block peaks to the light curves. Compare peak times with the forecast windows.
-5. **Persistence test:** Lomb–Scargle on post-2021 data alone. Check period consistency.
-6. **Red-noise calibration:**
-   - For each source, fit a power-law PSD to the pre-2021 data.
-   - Simulate 10,000 light curves with the same PSD and flux distribution (Timmer & König 1995; Emmanoulopoulos et al. 2013).
-   - Apply the *same* forecast-and-test procedure to each simulated curve to get the chance hit rate.
-7. **Population statistics:** compare the hit rate across the sample with the red-noise expectation using a binomial test or a likelihood ratio.
+1. **Read and encode the rule.** Read Peñil §8.1 and Table A7. Implement their definitions of "high state" and "match window" exactly.
+2. **Reproduce** the 19/59 hit rate on the Light Curve Repository data.
+3. **Red-noise null:**
+   - For each of the 30 sources, fit the PSD (power law and bending power law) to the pre-forecast data.
+   - Simulate 10,000 light curves (Emmanoulopoulos et al. 2013), with real cadence, gaps and upper limits.
+   - Apply *the same* forecast procedure and matching rule to each, and record the hit counts.
+4. **Randomised-forecast null:** keep the real light curves, but shift the predicted phases randomly or scramble periods between sources. This gives the chance hit rate for this rule on these data.
+5. **Inference:** p-value of 19/59 under each null; a hit-rate excess with confidence interval; sensitivity to the window width (±0.1, ±0.2, ±0.3 period).
+6. **Pre-registration (Part C):**
+   - Before scoring, commit `preregistration/predictions_2026.md`: sources, predicted windows, scoring rule and analysis code hash.
+   - The git commit timestamp on GitHub is the public record.
+   - OSF preregistration requires users to be 18+, so the mentor could co-register it there.
+   - Score each prediction once data through 3 months past the window are available.
 
 ## 7. Timeline
 
-| Week | Tasks | Deliverable |
-|---|---|---|
-| 1 | Read the key papers. Email the Rico/Domínguez group for forecast tables. Download the LCR data. Reproduce PG 1553+113. | Data plus positive control |
-| 2 | Extract or recompute forecasts. Measure the 2021–2026 peaks. Run the persistence test. | Results table |
-| 3 | Red-noise simulations and population statistics. Make figures. | Final figures |
-| 4 | Write up; mentor review. Submit to RNAAS. Post to arXiv (mentor endorsement). | Submitted paper |
+| Week | Tasks |
+|---|---|
+| 1 | Read Peñil §8.1 / Table A7 / Table 3 (gate check). Email the Peñil/Domínguez group. Download the data. Encode the rule. Reproduce 19/59. **Commit the pre-registration.** |
+| 2 | Red-noise and randomised-forecast simulations. p-values. Window-width sensitivity. Figures. |
+| 3 | Write up; mentor review. Submit to RNAAS. arXiv (mentor endorsement). |
+| Early–mid 2027 | Score the pre-registered predictions → a second RNAAS note, or merge into a longer paper. |
 
-**Minimum viable result (end of week 2):** a forecast-vs-observed table for the 28 sources. That is enough for a Research Note.
+## 8. Venue
 
-## 8. Expected outputs and venue
-
-- **RNAAS** (Research Notes of the AAS): a short note of 1,500 words and one figure, free, high acceptance likelihood.
-- **Expanded paper:** all 46 candidates plus full red-noise statistics for **ApJ** or **MNRAS** with the mentor as co-author.
-- **Alternative:** the *Journal of Emerging Investigators* (the project is hypothesis-driven; requires an adult mentor as senior author). Do not publish the same result in two venues.
-- Public code and data tables in this repository.
+- **RNAAS** for Parts A+B (1,500 words, one figure).
+- A follow-up RNAAS note for Part C.
+- With the mentor, an ApJ/MNRAS paper combining everything.
+- Contacting Peñil et al. early is encouraged: they may welcome an independent check or offer collaboration.
 
 ## 9. Where the mentor helps most
 
-- Red-noise statistics and the correct framing of significance and trials factors.
-- Physical interpretation (SMBHB vs jet precession vs other quasi-periodic mechanisms).
-- Sanity-checking the methodology.
-- arXiv endorsement (required for first-time submitters since Jan 2026).
+- Red-noise simulation choices and the framing of significance and trials factors.
+- Interpretation (SMBHB vs jet precession vs stochastic variability).
+- arXiv endorsement.
 
-## 10. Risks and mitigations
+## 10. Risks
 
 | Risk | Mitigation |
 |---|---|
-| Forecasts only available as figures | Digitise, contact the authors, and make independent forecasts (step 3c) |
-| LCR light curves (fixed photon index, 30-day bins) differ from the authors' own analysis | Compare peak *timing*, not amplitude; note the differences in the paper |
-| The original group tests its own forecasts first | Contact them early; offer collaboration; move fast (RNAAS in about 3 weeks) |
-| Too few cycles after 2021 for long-period sources | Restrict the strong test to periods under 3 years; report others as limits |
+| Peñil et al. already calibrated the hit rate (gate) | Drop Part B and switch to Part C plus the backup topic |
+| Their light curves differ from the Light Curve Repository's | Use their matching rule on Light Curve Repository data and report any differences in reproduction |
+| Predicted dates misread from a garbled table | Confirm from the published PDF; ask the authors |
+| Part C needs data through about Jan 2027 | Parts A+B stand alone |
 
 ## 11. Key references
 
+- Peñil, P. et al. (2026). Gamma-Ray Periodicity in Jetted AGN: Revisiting Periodicity Candidates with >17 years of Fermi-LAT Data. arXiv:2606.15676
 - Rico, A. et al. (2025). A&A 697, A35. arXiv:2412.05812
-- Abdollahi, S. et al. (2023). The Fermi-LAT Light Curve Repository. ApJS. arXiv:2301.01607
+- Abdollahi, S. et al. (2023). Fermi-LAT Light Curve Repository. ApJS. arXiv:2301.01607
 - Hashad, M. et al. (2026). ApJ 1009, 28. arXiv:2602.19214
-- Yang et al. (2026). arXiv:2608.24522
-- Peñil, P. et al. (2025). arXiv:2507.13906
-- Vaughan, S. et al. (2016). False periodicities in quasar time-domain surveys. MNRAS 461, 3145
-- Timmer, J. & König, M. (1995). A&A 300, 707
+- Vaughan, S. et al. (2016). MNRAS 461, 3145
 - Emmanoulopoulos, D. et al. (2013). MNRAS 433, 907
-- Ackermann, M. et al. (2015). PG 1553+113 periodicity. ApJL 813, L41
+- Timmer, J. & König, M. (1995). A&A 300, 707
 
-> ⚠️ These references were compiled by an AI research assistant. Verify every citation (authors, year, journal, arXiv ID) against the source before using it in the paper.
+> ⚠️ These references were compiled by an AI research assistant. Verify every citation before using it. arXiv:2606.15676 and 2412.05812 were checked against the arXiv API on 22 Nov 2026.

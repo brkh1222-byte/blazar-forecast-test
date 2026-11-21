@@ -1,12 +1,12 @@
 # blazar-forecast-test
 
-Do gamma-ray blazar periodicities keep time? This repo is an out-of-sample test of published Fermi-LAT periodicity forecasts for supermassive black hole binary candidates, using 2021–2026 data.
+How often would chance alone "confirm" a blazar periodicity forecast? This repo does a null calibration of the Fermi-LAT gamma-ray forecast test (Peñil et al. 2026) for supermassive black hole binary candidates, plus a pre-registered blind test of the 2026–27 predictions.
 
 📄 **Read the research proposal:** [PROPOSAL.md](PROPOSAL.md)
 
 ## Plan
 
-Fermi LAT Light Curve Repository → reproduce pre-2021 periods → forecasts → measure 2021–2026 peaks → red-noise simulations → population test
+Read Peñil+2026 matching rule → reproduce 19/59 hits → red-noise and randomised-forecast nulls → p-value → pre-registered scoring of the new predictions (2027)
 
 ## Layout
 
