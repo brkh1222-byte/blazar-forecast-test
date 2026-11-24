@@ -1,0 +1,9 @@
+Pre-registration fingerprint recorded before any Part B LCR download
+2026-11-21T23:41:33Z
+8bf44d415cc375b02f5ce1ba868d3728b82f614128dcade61af68c2449048849  preregistration/predictions_2026.md
+10341e0fc5e4f5589dc77d369b7c7bd92765009d7659fc9f2a5700118624fea4  src/match.py
+1704d6d90f48ecd74a3944ecfb5a2d591969ce4fbbca6221cbb66cb49ffdb5ec  src/nulls.py
+a1ca790bb9a67f088eeb8f2501a936fc20af70c4033f5c1c7e96b2ca559de47d  src/simulate.py
+5890cb0d1d5509827190e170efd9a850802405643398ad387cbcb76ad3d6a740  src/config.py
+1022696f0b820f782a1f0ceb2e0f2de15982ba1e8c17d1bcba290970df6d3b47  src/lcr.py
+611eac502f3928639a3d6ca61af55e29df8ab91bb0f16ab111457a5689fe8fb5  src/psd_fit.py

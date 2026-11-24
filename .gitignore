@@ -6,3 +6,6 @@ __pycache__/
 venv/
 .ipynb_checkpoints/
 .DS_Store
+!data/README.md
+!data/penil_*.csv
+.pytest_cache/

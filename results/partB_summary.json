@@ -1,0 +1,13 @@
+{
+  "n_sources": 30,
+  "n_forecasts": 59,
+  "primary_rule": null,
+  "best_candidate": "R3_high_state",
+  "best_kappa": 0.34406085430076067,
+  "n1_draws": 10000,
+  "n2_sims": 1000,
+  "quick": false,
+  "seed": 20261122,
+  "partB_end_mjd": 61000.0,
+  "pretest_end_mjd": 59065.0
+}

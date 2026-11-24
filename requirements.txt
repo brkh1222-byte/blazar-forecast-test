@@ -1,0 +1,10 @@
+# Pinned versions (tested with Python 3.14.8). Install: pip install -r requirements.txt
+numpy==2.5.5
+scipy==1.18.1
+astropy==8.0.3
+pandas==3.1.1
+matplotlib==3.11.2
+emcee==3.1.6
+requests==2.34.2
+tqdm==4.70.1
+pytest==9.2.0

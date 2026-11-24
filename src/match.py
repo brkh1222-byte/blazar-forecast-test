@@ -1,0 +1,143 @@
+"""Forecast-matching rules for the Peñil et al. (2026) forecast test.
+
+Background
+----------
+Peñil et al. (2026, MNRAS 550, stag1141), Section 8.1, score a predicted peak
+time t_pred as follows (quoted from the paper):
+
+    "Each prediction is evaluated within a symmetric window
+     [t_pred - W, t_pred + W] with W = 0.20T."
+    "A prediction is considered evaluable only if the window contains at
+     least N_min = 2 measurements."
+    "we define the observed cycle-associated peak as the maximum flux within
+     the window, occurring at t_obs."
+    "|t_obs - t_pred| <= dt_tol, with dt_tol = max(60 d, 0.20T)."
+
+Because t_obs is inside the window, |t_obs - t_pred| <= 0.20T <= dt_tol, so
+this rule (R0 below) can never produce a miss. Yet 40 of their 59 forecasts are
+marked as misses. Some unstated step must decide the outcome. This module
+implements R0 plus a small set of candidate rules, FIXED IN ADVANCE, so that we
+can test which one reproduces their Table A7 verdicts (question Q0) without
+tuning a rule to the answer.
+
+Every rule takes the same inputs, so the real forecasts and every null
+simulation are scored identically.
+
+Units: times in days (MJD), periods in days.
+"""
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+import numpy as np
+
+RULES = ("R0_as_printed", "R1_interior_max", "R2_local_max", "R3_high_state", "R4_cycle_max")
+
+# Added AFTER the Q0 results were seen (exploratory, not pre-registered; see
+# preregistration/2026-11-22_amendment_1.md). X1 = R3 AND R4: the cycle maximum
+# must fall within the tolerance AND the window maximum must be a high state.
+EXPLORATORY_RULES = ("X1_high_and_cycle",)
+
+
+@dataclass(frozen=True)
+class MatchSettings:
+    window_frac: float = 0.20      # W = window_frac * T
+    tol_frac: float = 0.20         # dt_tol = max(tol_floor_days, tol_frac * T)
+    tol_floor_days: float = 60.0
+    n_min: int = 2                 # minimum detections inside the window
+    high_state_k: float = 1.0      # R3: peak must exceed median + k * std
+    cycle_frac: float = 0.50       # R4: search for the cycle maximum within +/- cycle_frac * T
+
+
+@dataclass(frozen=True)
+class MatchResult:
+    evaluable: bool
+    hit: bool
+    t_obs: float | None
+
+
+def _window(t, lo, hi):
+    return (t >= lo) & (t <= hi)
+
+
+def score_prediction(t, flux, detected, t_pred, period, rule="R0_as_printed",
+                     settings: MatchSettings = MatchSettings(), ref_level=None):
+    """Score one predicted peak time against one light curve.
+
+    Parameters
+    ----------
+    t, flux : arrays of bin centres (days) and fluxes.
+    detected : boolean array; False for upper-limit / low-TS bins. Only
+        detected bins can be the "observed peak" (the paper's light curves keep
+        only bins with >= 2 sigma detections).
+    t_pred : predicted peak time (days).
+    period : period T (days).
+    rule : one of RULES.
+    ref_level : (median, std) of the flux used by R3. Must come from data that
+        do NOT include the test interval, otherwise the threshold peeks at the
+        answer. If None, R3 uses the whole light curve passed in.
+    """
+    if rule in EXPLORATORY_RULES:
+        r3 = score_prediction(t, flux, detected, t_pred, period, "R3_high_state", settings, ref_level)
+        if not r3.evaluable:
+            return r3
+        r4 = score_prediction(t, flux, detected, t_pred, period, "R4_cycle_max", settings, ref_level)
+        return MatchResult(True, r3.hit and r4.hit, r4.t_obs)
+    if rule not in RULES:
+        raise ValueError(f"unknown rule {rule!r}; choose from {RULES + EXPLORATORY_RULES}")
+    t = np.asarray(t, float)
+    flux = np.asarray(flux, float)
+    det = np.asarray(detected, bool)
+    s = settings
+    W = s.window_frac * period
+    tol = max(s.tol_floor_days, s.tol_frac * period)
+
+    in_win = _window(t, t_pred - W, t_pred + W) & det
+    if in_win.sum() < s.n_min:
+        return MatchResult(False, False, None)
+
+    idx = np.flatnonzero(in_win)
+    k_max = idx[np.argmax(flux[idx])]          # index of the window maximum
+    t_obs = t[k_max]
+
+    if rule == "R0_as_printed":
+        hit = abs(t_obs - t_pred) <= tol       # always true when tol >= W
+    elif rule == "R1_interior_max":
+        # The window maximum must not sit on the first or last detected bin of
+        # the window: a maximum on the edge means the light curve is still
+        # rising or falling, so it is not a turning point.
+        hit = (k_max != idx[0]) and (k_max != idx[-1])
+    elif rule == "R2_local_max":
+        # The window maximum must also beat the nearest detected bins just
+        # outside the window on both sides (a true local peak).
+        before = np.flatnonzero(det & (t < t_pred - W))
+        after = np.flatnonzero(det & (t > t_pred + W))
+        ok_before = before.size == 0 or flux[k_max] > flux[before[-1]]
+        ok_after = after.size == 0 or flux[k_max] > flux[after[0]]
+        hit = ok_before and ok_after
+    elif rule == "R3_high_state":
+        # The window maximum must be a "high state": above median + k * std.
+        if ref_level is None:
+            med, sd = np.median(flux[det]), np.std(flux[det])
+        else:
+            med, sd = ref_level
+        hit = flux[k_max] > med + s.high_state_k * sd
+    else:  # R4_cycle_max
+        # Find the maximum over the whole cycle around the prediction
+        # (+/- 0.5 T), then require it to lie within the tolerance.
+        Wc = s.cycle_frac * period
+        in_cyc = np.flatnonzero(_window(t, t_pred - Wc, t_pred + Wc) & det)
+        k_cyc = in_cyc[np.argmax(flux[in_cyc])]
+        t_obs = t[k_cyc]
+        hit = abs(t_obs - t_pred) <= tol
+    return MatchResult(True, bool(hit), float(t_obs))
+
+
+def score_source(t, flux, detected, t_preds, period, rule="R0_as_printed",
+                 settings: MatchSettings = MatchSettings(), ref_level=None):
+    """Score all predictions for one source. Returns (n_evaluable, n_hits, list of results)."""
+    res = [score_prediction(t, flux, detected, tp, period, rule, settings, ref_level)
+           for tp in np.atleast_1d(t_preds)]
+    n_eval = sum(r.evaluable for r in res)
+    n_hit = sum(r.hit for r in res)
+    return n_eval, n_hit, res
