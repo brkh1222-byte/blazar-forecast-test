@@ -1,0 +1,436 @@
+{
+  "source_files": "q0_kappa.csv, partB_n1.csv, partB_n2.csv, power.csv, negative_control.csv, exploratory_X1.json",
+  "design": {
+    "n_sources": 30,
+    "n_forecasts": 59,
+    "primary_rule": null,
+    "best_candidate": "R3_high_state",
+    "best_kappa": 0.34406085430076067,
+    "n1_draws": 10000,
+    "n2_sims": 1000,
+    "quick": false,
+    "seed": 20261122,
+    "partB_end_mjd": 61000.0,
+    "pretest_end_mjd": 59065.0
+  },
+  "authors": {
+    "hits": 19,
+    "forecasts": 59,
+    "rate": 0.3220338983050847
+  },
+  "primary_rule": null,
+  "rules": {
+    "R0_as_printed": {
+      "kappa": 0.04962995211144981,
+      "agreement": 0.3728813559322034,
+      "hits": 56,
+      "evaluable": 56,
+      "H_obs": 1.0,
+      "N1": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "p": 1.0,
+        "p_authors_19_of_59": 1.0,
+        "delta_H": 0.0
+      },
+      "N2_PL": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "p": 1.0,
+        "p_authors_19_of_59": 1.0
+      },
+      "N2_BPL": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "p": 1.0,
+        "p_authors_19_of_59": 1.0
+      }
+    },
+    "R1_interior_max": {
+      "kappa": 0.2260343087790111,
+      "agreement": 0.559322033898305,
+      "hits": 41,
+      "evaluable": 56,
+      "H_obs": 0.7321428571428571,
+      "N1": {
+        "mean": 0.708953641082422,
+        "sd": 0.059786091043046836,
+        "p": 0.3578642135786421,
+        "p_authors_19_of_59": 1.0,
+        "delta_H": 0.023189216060435114
+      },
+      "N2_PL": {
+        "mean": 0.7151428571428571,
+        "sd": 0.05903587632853052,
+        "p": 0.4565434565434565,
+        "p_authors_19_of_59": 1.0
+      },
+      "N2_BPL": {
+        "mean": 0.711,
+        "sd": 0.05945153230891152,
+        "p": 0.4125874125874126,
+        "p_authors_19_of_59": 1.0
+      },
+      "power": {
+        "0.25": 0.61,
+        "0.5": 0.96,
+        "1.0": 1.0,
+        "2.0": 1.0,
+        "0.0": 0.07
+      },
+      "negative_control_shift1_p": 0.9256074392560744
+    },
+    "R2_local_max": {
+      "kappa": 0.10436432637571164,
+      "agreement": 0.4576271186440678,
+      "hits": 47,
+      "evaluable": 56,
+      "H_obs": 0.8392857142857143,
+      "N1": {
+        "mean": 0.7876906643557496,
+        "sd": 0.057287101221685975,
+        "p": 0.19208079192080793,
+        "p_authors_19_of_59": 1.0,
+        "delta_H": 0.051595049929964665
+      },
+      "N2_PL": {
+        "mean": 0.7710714285714285,
+        "sd": 0.05424458028039224,
+        "p": 0.13186813186813187,
+        "p_authors_19_of_59": 1.0
+      },
+      "N2_BPL": {
+        "mean": 0.7782857142857142,
+        "sd": 0.05589868750969134,
+        "p": 0.18281718281718282,
+        "p_authors_19_of_59": 1.0
+      },
+      "power": {
+        "0.25": 0.62,
+        "0.5": 0.94,
+        "1.0": 1.0,
+        "2.0": 1.0,
+        "0.0": 0.01
+      },
+      "negative_control_shift1_p": 0.7973202679732027
+    },
+    "R3_high_state": {
+      "kappa": 0.34406085430076067,
+      "agreement": 0.6779661016949152,
+      "hits": 28,
+      "evaluable": 56,
+      "H_obs": 0.5,
+      "N1": {
+        "mean": 0.4730152916642757,
+        "sd": 0.04498235168896143,
+        "p": 0.3150684931506849,
+        "p_authors_19_of_59": 0.9993000699930007,
+        "delta_H": 0.026984708335724306
+      },
+      "N2_PL": {
+        "mean": 0.5422678571428571,
+        "sd": 0.07498365255514167,
+        "p": 0.7542457542457542,
+        "p_authors_19_of_59": 0.999000999000999
+      },
+      "N2_BPL": {
+        "mean": 0.6142678571428571,
+        "sd": 0.06500539371263504,
+        "p": 0.975024975024975,
+        "p_authors_19_of_59": 1.0
+      },
+      "power": {
+        "0.25": 0.42,
+        "0.5": 0.89,
+        "1.0": 1.0,
+        "2.0": 1.0,
+        "0.0": 0.01
+      },
+      "negative_control_shift1_p": 0.835016498350165
+    },
+    "R4_cycle_max": {
+      "kappa": 0.23104265402843593,
+      "agreement": 0.6271186440677966,
+      "hits": 27,
+      "evaluable": 56,
+      "H_obs": 0.48214285714285715,
+      "N1": {
+        "mean": 0.418009383917146,
+        "sd": 0.06805792703023908,
+        "p": 0.1663833616638336,
+        "p_authors_19_of_59": 0.9167083291670833,
+        "delta_H": 0.06413347322571117
+      },
+      "N2_PL": {
+        "mean": 0.3934821428571429,
+        "sd": 0.06422063918592666,
+        "p": 0.11588411588411589,
+        "p_authors_19_of_59": 0.8511488511488512
+      },
+      "N2_BPL": {
+        "mean": 0.414125,
+        "sd": 0.06425227056656585,
+        "p": 0.1798201798201798,
+        "p_authors_19_of_59": 0.9090909090909091
+      },
+      "power": {
+        "0.25": 0.9,
+        "0.5": 1.0,
+        "1.0": 1.0,
+        "2.0": 1.0,
+        "0.0": 0.05
+      },
+      "negative_control_shift1_p": 0.764023597640236
+    }
+  },
+  "n1_robustness": {
+    "n_cells": 20,
+    "min_p": 0.055094490550944904,
+    "max_p": 0.6628337166283371,
+    "cell_of_min": {
+      "cell": "robust-W",
+      "rule": "R1_interior_max",
+      "W": 0.1,
+      "n_min": 2,
+      "periods": "spacing"
+    }
+  },
+  "exploratory_X1": {
+    "rule": "X1_high_and_cycle",
+    "kappa": 0.47357584076870296,
+    "hits": 16,
+    "evaluable": 56,
+    "H_obs": 0.2857142857142857,
+    "N1_mean": 0.2894589742195973,
+    "N1_sd": 0.05794018875430929,
+    "p_N1": 0.5261473852614739,
+    "p_N1_authors": 0.27387261273872615,
+    "N2PL_mean": 0.2793928571428571,
+    "p_N2PL": 0.5064935064935064,
+    "p_N2PL_authors": 0.20679320679320679,
+    "N2BPL_mean": 0.34119642857142857,
+    "p_N2BPL": 0.8481518481518482,
+    "p_N2BPL_authors": 0.5694305694305695
+  },
+  "review_exploratory": {
+    "note": "Exploratory review checks, run 2026-11-25 after Part B results were known.",
+    "A_rule_selection": {
+      "R1-R4": {
+        "best_rule": "R3_high_state",
+        "kappa_in_sample": 0.34406085430076067,
+        "kappa_bootstrap_95": [
+          0.08642625484526975,
+          0.6037552089705851
+        ],
+        "kappa_leave_one_source_out": 0.34406085430076067,
+        "loso_rule_counts": {
+          "R3_high_state": 30
+        },
+        "n_rules_in_family": 4,
+        "perm_null_max_kappa_mean": 0.10165132648665781,
+        "perm_null_max_kappa_95th": 0.23104265402843593,
+        "perm_p_value": 0.008247938015496127
+      },
+      "AND-combinations": {
+        "best_rule": "R1_interior_max&R3_high_state&R4_cycle_max",
+        "kappa_in_sample": 0.5413427561837457,
+        "kappa_bootstrap_95": [
+          0.28011945369077085,
+          0.7517967814003406
+        ],
+        "kappa_leave_one_source_out": 0.47357584076870296,
+        "loso_rule_counts": {
+          "R1_interior_max&R3_high_state&R4_cycle_max": 29,
+          "R3_high_state&R4_cycle_max": 1
+        },
+        "n_rules_in_family": 15,
+        "perm_null_max_kappa_mean": 0.12712471850896012,
+        "perm_null_max_kappa_95th": 0.30094786729857814,
+        "perm_p_value": 0.0004998750312421895
+      },
+      "all_combo_kappas": {
+        "R1_interior_max": 0.2260343087790111,
+        "R2_local_max": 0.10436432637571164,
+        "R3_high_state": 0.34406085430076067,
+        "R4_cycle_max": 0.23104265402843593,
+        "R1_interior_max&R2_local_max": 0.30897936419408806,
+        "R1_interior_max&R3_high_state": 0.44093493367024633,
+        "R1_interior_max&R4_cycle_max": 0.2643391521197008,
+        "R2_local_max&R3_high_state": 0.38276923076923075,
+        "R2_local_max&R4_cycle_max": 0.23104265402843593,
+        "R3_high_state&R4_cycle_max": 0.47357584076870296,
+        "R1_interior_max&R2_local_max&R3_high_state": 0.4883255503669114,
+        "R1_interior_max&R2_local_max&R4_cycle_max": 0.2643391521197008,
+        "R1_interior_max&R3_high_state&R4_cycle_max": 0.5413427561837457,
+        "R2_local_max&R3_high_state&R4_cycle_max": 0.47357584076870296,
+        "R1_interior_max&R2_local_max&R3_high_state&R4_cycle_max": 0.5413427561837457
+      },
+      "confusion_R3": {
+        "0": {
+          "0": 26,
+          "1": 14
+        },
+        "1": {
+          "0": 5,
+          "1": 14
+        }
+      },
+      "confusion_X1": {
+        "0": {
+          "0": 35,
+          "1": 5
+        },
+        "1": {
+          "0": 8,
+          "1": 11
+        }
+      }
+    },
+    "B_negative_control_all_shifts": {
+      "R1_interior_max": {
+        "n_shifts": 29,
+        "median_p": 0.5372313843078461,
+        "min_p": 0.006496751624187906,
+        "frac_p_below_0p05": 0.06896551724137931,
+        "frac_p_below_0p5": 0.4827586206896552,
+        "mean_H_obs_minus_null": 0.00750098385201219,
+        "ks_uniform_p": 0.36150825222891125
+      },
+      "R2_local_max": {
+        "n_shifts": 29,
+        "median_p": 0.44577711144427784,
+        "min_p": 0.011494252873563218,
+        "frac_p_below_0p05": 0.034482758620689655,
+        "frac_p_below_0p5": 0.5517241379310345,
+        "mean_H_obs_minus_null": 0.005883449805073079,
+        "ks_uniform_p": 0.6550288125837799
+      },
+      "R3_high_state": {
+        "n_shifts": 29,
+        "median_p": 0.4612693653173413,
+        "min_p": 0.06146926536731634,
+        "frac_p_below_0p05": 0.0,
+        "frac_p_below_0p5": 0.5172413793103449,
+        "mean_H_obs_minus_null": -0.0003045779408973058,
+        "ks_uniform_p": 0.9003719813172236
+      },
+      "R4_cycle_max": {
+        "n_shifts": 29,
+        "median_p": 0.3103448275862069,
+        "min_p": 0.0029985007496251873,
+        "frac_p_below_0p05": 0.10344827586206896,
+        "frac_p_below_0p5": 0.7586206896551724,
+        "mean_H_obs_minus_null": 0.040706126197979066,
+        "ks_uniform_p": 0.006881310108683758
+      },
+      "note": "The 29 shifts reuse the same light curves and forecasts, so they are not independent; the KS p-value is only a rough guide."
+    },
+    "C_not_evaluable": [
+      {
+        "source": "S4 1030+41",
+        "predicted_epoch": "2023-04",
+        "supported": 0
+      },
+      {
+        "source": "TXS 1530\u2212131",
+        "predicted_epoch": "2022-08-29",
+        "supported": 0
+      },
+      {
+        "source": "TXS 1530\u2212131",
+        "predicted_epoch": "2025-06",
+        "supported": 0
+      }
+    ],
+    "C_authors_hits_among_evaluable": 19,
+    "C_n_det_pretest_min": 72,
+    "C_PL_beta": {
+      "min": 0.7134901850689905,
+      "median": 1.0888637885353123,
+      "max": 1.8445837504109184,
+      "n_at_lower_bound": 0,
+      "n_at_upper_bound": 0
+    },
+    "D_fitted_forecast_check": {
+      "fitted_fixed_T": {
+        "R1_interior_max": {
+          "H_mean": 0.7163811092854471,
+          "H_sd": 0.054981553393847984,
+          "mean_evaluable": 61.795
+        },
+        "R2_local_max": {
+          "H_mean": 0.7564673860532751,
+          "H_sd": 0.054712672774338354,
+          "mean_evaluable": 61.795
+        },
+        "R3_high_state": {
+          "H_mean": 0.5389806549777432,
+          "H_sd": 0.07571047565741866,
+          "mean_evaluable": 61.795
+        },
+        "R4_cycle_max": {
+          "H_mean": 0.38782426814230014,
+          "H_sd": 0.06273896976469909,
+          "mean_evaluable": 61.795
+        }
+      },
+      "fitted_best_T": {
+        "R1_interior_max": {
+          "H_mean": 0.7336971187201826,
+          "H_sd": 0.06600477883694801,
+          "mean_evaluable": 46.9675
+        },
+        "R2_local_max": {
+          "H_mean": 0.7881587619443445,
+          "H_sd": 0.060274996394589574,
+          "mean_evaluable": 46.9675
+        },
+        "R3_high_state": {
+          "H_mean": 0.5755542067437822,
+          "H_sd": 0.07624659737514772,
+          "mean_evaluable": 46.9675
+        },
+        "R4_cycle_max": {
+          "H_mean": 0.41037222574848314,
+          "H_sd": 0.0722260427920544,
+          "mean_evaluable": 46.9675
+        }
+      },
+      "real_forecasts": {
+        "R1_interior_max": {
+          "H_mean": 0.7158928571428572,
+          "H_sd": 0.054345303291047316,
+          "mean_evaluable": 56.0
+        },
+        "R2_local_max": {
+          "H_mean": 0.7669642857142855,
+          "H_sd": 0.05351931989516325,
+          "mean_evaluable": 56.0
+        },
+        "R3_high_state": {
+          "H_mean": 0.5416517857142857,
+          "H_sd": 0.07346851277425047,
+          "mean_evaluable": 56.0
+        },
+        "R4_cycle_max": {
+          "H_mean": 0.3973214285714286,
+          "H_sd": 0.0598880226347643,
+          "mean_evaluable": 56.0
+        }
+      },
+      "difference_fixed_T_minus_real": {
+        "R1_interior_max": 0.00048825214258985117,
+        "R2_local_max": -0.010496899661010417,
+        "R3_high_state": -0.0026711307365425707,
+        "R4_cycle_max": -0.00949716042912846
+      },
+      "difference_best_T_minus_real": {
+        "R1_interior_max": 0.017804261577325398,
+        "R2_local_max": 0.02119447623005899,
+        "R3_high_state": 0.03390242102949648,
+        "R4_cycle_max": 0.01305079717705454
+      },
+      "note": "Red-noise simulations (power-law PSD fitted to each source's first 12 yr, Emmanoulopoulos method, 400 per source). 'fitted' forecasts come from a sinusoid fitted to the simulated first 12 yr; 'real_forecasts' are the Table A7 epochs, which are unrelated to the simulation (= the N2 null). A positive difference means that forecasts extrapolated from red noise hit more often than random-phase forecasts. The sinusoid fit is only a proxy for the SSA and phase-folding forecasts of the original papers."
+    }
+  }
+}

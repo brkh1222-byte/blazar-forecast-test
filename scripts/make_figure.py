@@ -1,7 +1,7 @@
 """Figure 1 of the research note. Regenerate with:  python scripts/make_figure.py
 Inputs: results/null_draws.npz, results/null_draws_X1.npz, results/partB_n1.csv,
         results/exploratory_X1.json, results/power.csv
-Output: paper/fig1.pdf and paper/fig1.png
+Output: paper/fig1.pdf, paper/fig1.png and results/fig_hitrate_null.png (identical figure)
 """
 import json
 from pathlib import Path
@@ -89,4 +89,5 @@ fig.tight_layout(w_pad=2.5)
 (ROOT / "paper").mkdir(exist_ok=True)
 fig.savefig(ROOT / "paper/fig1.pdf")
 fig.savefig(ROOT / "paper/fig1.png", dpi=200)
+fig.savefig(R / "fig_hitrate_null.png", dpi=200)          # same figure, name required by TASKS.md T3.5
 print("wrote paper/fig1.pdf, paper/fig1.png")

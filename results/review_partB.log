@@ -1,0 +1,146 @@
+[    2s] A R1-R4: {'best_rule': 'R3_high_state', 'kappa_in_sample': 0.34406085430076067, 'kappa_bootstrap_95': [0.08642625484526975, 0.6037552089705851], 'kappa_leave_one_source_out': 0.34406085430076067, 'loso_rule_counts': {'R3_high_state': 30}, 'n_rules_in_family': 4, 'perm_null_max_kappa_mean': 0.10165132648665781, 'perm_null_max_kappa_95th': 0.23104265402843593, 'perm_p_value': 0.008247938015496127}
+[    7s] A AND-combinations: {'best_rule': 'R1_interior_max&R3_high_state&R4_cycle_max', 'kappa_in_sample': 0.5413427561837457, 'kappa_bootstrap_95': [0.28011945369077085, 0.7517967814003406], 'kappa_leave_one_source_out': 0.47357584076870296, 'loso_rule_counts': {'R1_interior_max&R3_high_state&R4_cycle_max': 29, 'R3_high_state&R4_cycle_max': 1}, 'n_rules_in_family': 15, 'perm_null_max_kappa_mean': 0.12712471850896012, 'perm_null_max_kappa_95th': 0.30094786729857814, 'perm_p_value': 0.0004998750312421895}
+[   11s] B shift 1
+[   14s] B shift 2
+[   17s] B shift 3
+[   21s] B shift 4
+[   26s] B shift 5
+[   30s] B shift 6
+[   33s] B shift 7
+[   38s] B shift 8
+[   43s] B shift 9
+[   47s] B shift 10
+[   51s] B shift 11
+[   55s] B shift 12
+[   59s] B shift 13
+[   63s] B shift 14
+[   67s] B shift 15
+[   70s] B shift 16
+[   74s] B shift 17
+[   77s] B shift 18
+[   82s] B shift 19
+[   86s] B shift 20
+[   91s] B shift 21
+[   97s] B shift 22
+[  102s] B shift 23
+[  107s] B shift 24
+[  111s] B shift 25
+[  116s] B shift 26
+[  120s] B shift 27
+[  125s] B shift 28
+[  131s] B shift 29
+{'R1_interior_max': {'n_shifts': 29, 'median_p': 0.5372313843078461, 'min_p': 0.006496751624187906, 'frac_p_below_0p05': 0.06896551724137931, 'frac_p_below_0p5': 0.4827586206896552, 'mean_H_obs_minus_null': 0.00750098385201219, 'ks_uniform_p': 0.36150825222891125}, 'R2_local_max': {'n_shifts': 29, 'median_p': 0.44577711144427784, 'min_p': 0.011494252873563218, 'frac_p_below_0p05': 0.034482758620689655, 'frac_p_below_0p5': 0.5517241379310345, 'mean_H_obs_minus_null': 0.005883449805073079, 'ks_uniform_p': 0.6550288125837799}, 'R3_high_state': {'n_shifts': 29, 'median_p': 0.4612693653173413, 'min_p': 0.06146926536731634, 'frac_p_below_0p05': 0.0, 'frac_p_below_0p5': 0.5172413793103449, 'mean_H_obs_minus_null': -0.0003045779408973058, 'ks_uniform_p': 0.9003719813172236}, 'R4_cycle_max': {'n_shifts': 29, 'median_p': 0.3103448275862069, 'min_p': 0.0029985007496251873, 'frac_p_below_0p05': 0.10344827586206896, 'frac_p_below_0p5': 0.7586206896551724, 'mean_H_obs_minus_null': 0.040706126197979066, 'ks_uniform_p': 0.006881310108683758}, 'note': 'The 29 shifts reuse the same light curves and forecasts, so they are not independent; the KS p-value is only a rough guide.'}
+[{'source': 'S4 1030+41', 'predicted_epoch': '2023-04', 'supported': 0}, {'source': 'TXS 1530−131', 'predicted_epoch': '2022-08-29', 'supported': 0}, {'source': 'TXS 1530−131', 'predicted_epoch': '2025-06', 'supported': 0}] {'min': 0.7134901850689905, 'median': 1.0888637885353123, 'max': 1.8445837504109184, 'n_at_lower_bound': 0, 'n_at_upper_bound': 0}
+[  134s] D source 1/30
+[  138s] D source 2/30
+[  143s] D source 3/30
+[  148s] D source 4/30
+[  154s] D source 5/30
+[  164s] D source 6/30
+[  171s] D source 7/30
+[  176s] D source 8/30
+[  180s] D source 9/30
+[  183s] D source 10/30
+[  190s] D source 11/30
+[  195s] D source 12/30
+[  209s] D source 13/30
+[  216s] D source 14/30
+[  220s] D source 15/30
+[  223s] D source 16/30
+[  226s] D source 17/30
+[  232s] D source 18/30
+[  237s] D source 19/30
+[  267s] D source 20/30
+[  283s] D source 21/30
+[  287s] D source 22/30
+[  290s] D source 23/30
+[  294s] D source 24/30
+[  301s] D source 25/30
+[  305s] D source 26/30
+[  310s] D source 27/30
+[  314s] D source 28/30
+[  321s] D source 29/30
+[  326s] D source 30/30
+{
+ "fitted_fixed_T": {
+  "R1_interior_max": {
+   "H_mean": 0.7163811092854471,
+   "H_sd": 0.054981553393847984,
+   "mean_evaluable": 61.795
+  },
+  "R2_local_max": {
+   "H_mean": 0.7564673860532751,
+   "H_sd": 0.054712672774338354,
+   "mean_evaluable": 61.795
+  },
+  "R3_high_state": {
+   "H_mean": 0.5389806549777432,
+   "H_sd": 0.07571047565741866,
+   "mean_evaluable": 61.795
+  },
+  "R4_cycle_max": {
+   "H_mean": 0.38782426814230014,
+   "H_sd": 0.06273896976469909,
+   "mean_evaluable": 61.795
+  }
+ },
+ "fitted_best_T": {
+  "R1_interior_max": {
+   "H_mean": 0.7336971187201826,
+   "H_sd": 0.06600477883694801,
+   "mean_evaluable": 46.9675
+  },
+  "R2_local_max": {
+   "H_mean": 0.7881587619443445,
+   "H_sd": 0.060274996394589574,
+   "mean_evaluable": 46.9675
+  },
+  "R3_high_state": {
+   "H_mean": 0.5755542067437822,
+   "H_sd": 0.07624659737514772,
+   "mean_evaluable": 46.9675
+  },
+  "R4_cycle_max": {
+   "H_mean": 0.41037222574848314,
+   "H_sd": 0.0722260427920544,
+   "mean_evaluable": 46.9675
+  }
+ },
+ "real_forecasts": {
+  "R1_interior_max": {
+   "H_mean": 0.7158928571428572,
+   "H_sd": 0.054345303291047316,
+   "mean_evaluable": 56.0
+  },
+  "R2_local_max": {
+   "H_mean": 0.7669642857142855,
+   "H_sd": 0.05351931989516325,
+   "mean_evaluable": 56.0
+  },
+  "R3_high_state": {
+   "H_mean": 0.5416517857142857,
+   "H_sd": 0.07346851277425047,
+   "mean_evaluable": 56.0
+  },
+  "R4_cycle_max": {
+   "H_mean": 0.3973214285714286,
+   "H_sd": 0.0598880226347643,
+   "mean_evaluable": 56.0
+  }
+ },
+ "difference_fixed_T_minus_real": {
+  "R1_interior_max": 0.00048825214258985117,
+  "R2_local_max": -0.010496899661010417,
+  "R3_high_state": -0.0026711307365425707,
+  "R4_cycle_max": -0.00949716042912846
+ },
+ "difference_best_T_minus_real": {
+  "R1_interior_max": 0.017804261577325398,
+  "R2_local_max": 0.02119447623005899,
+  "R3_high_state": 0.03390242102949648,
+  "R4_cycle_max": 0.01305079717705454
+ },
+ "note": "Red-noise simulations (power-law PSD fitted to each source's first 12 yr, Emmanoulopoulos method, 400 per source). 'fitted' forecasts come from a sinusoid fitted to the simulated first 12 yr; 'real_forecasts' are the Table A7 epochs, which are unrelated to the simulation (= the N2 null). A positive difference means that forecasts extrapolated from red noise hit more often than random-phase forecasts. The sinusoid fit is only a proxy for the SSA and phase-folding forecasts of the original papers."
+}
+wrote results/review_partB.json
+exit 0
