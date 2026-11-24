@@ -1,0 +1,5 @@
+amplitude 0.0: primary_5 0.01/0.00/0.00/0.03; all_13 0.10/0.04/0.02/0.15; one_per_source_phase_folding 0.07/0.00/0.00/0.07
+amplitude 0.5: primary_5 0.00/0.00/0.00/0.06; all_13 0.24/0.14/0.11/0.46; one_per_source_phase_folding 0.16/0.00/0.02/0.32
+amplitude 1.0: primary_5 0.03/0.00/0.00/0.20; all_13 0.43/0.32/0.17/0.80; one_per_source_phase_folding 0.28/0.15/0.04/0.68
+amplitude 2.0: primary_5 0.16/0.02/0.00/0.28; all_13 0.80/0.77/0.53/0.98; one_per_source_phase_folding 0.66/0.69/0.12/0.93
+exit 0

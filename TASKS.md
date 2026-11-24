@@ -9,7 +9,7 @@
 
 ## Phase 0: Setup
 - [x] **T0.1** Create `requirements.txt` (numpy, scipy, astropy, pandas, matplotlib, emcee, requests, tqdm) and `src/config.py`.
-  - *Status:* both exist; versions pinned; a fresh `.venv` built from it runs all tests (24 pass).
+  - *Status:* both exist; versions pinned; a fresh `.venv` built from it runs all tests (27 pass).
 
 ## Phase 1: Gate check and rules (do first)
 - [x] **T1.1 GATE.** Read Peñil et al. 2026 (arXiv:2606.15676) §8.1, Table A7 and Table 3. Write `notes/penil2026_rules.md` containing:

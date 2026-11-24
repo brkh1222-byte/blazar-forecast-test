@@ -111,7 +111,24 @@ REV = `results/review_partB.json`; A7 = `data/penil_tableA7.csv`; T3 =
 | first and last scoring dates | 2027-01-28 (two forecasts); 2030-01-15 | `--schedule` |
 | dry-run numbers | see below | `results/partC_dryrun.json` |
 
-DRYRUN_NOTES
+Dry run (`results/partC_dryrun.json`, simulated light curves only, 100 samples per amplitude, 1,000 N1 draws;
+values are fractions of samples with p < 0.05 for R1/R2/R3/R4; also in `results/partC_dryrun.log`):
+
+| Amplitude (flux s.d.) | primary 5 | all 13 | one per source (8) |
+|---|---|---|---|
+| 0 (false-positive rate) | 0.01/0.00/0.00/0.03 | 0.10/0.04/0.02/0.15 | 0.07/0.00/0.00/0.07 |
+| 0.5 | 0.00/0.00/0.00/0.06 | 0.24/0.14/0.11/0.46 | 0.16/0.00/0.02/0.32 |
+| 1.0 | 0.03/0.00/0.00/0.20 | 0.43/0.32/0.17/0.80 | 0.28/0.15/0.04/0.68 |
+| 2.0 | 0.16/0.02/0.00/0.28 | 0.80/0.77/0.53/0.98 | 0.66/0.69/0.12/0.93 |
+
+| Number in paper | Value | Source |
+|---|---|---|
+| primary set, a = 2: "at most 28%"; R2 and R3 "at most 2%" | 0.16/0.02/0.00/0.28 | table above |
+| all 13, a = 2: "53%–98%" | 0.80/0.77/0.53/0.98 | table above |
+| all 13 false-positive rate "2%–15%" | 0.10/0.04/0.02/0.15 | table above (100 samples: standard error about 0.02–0.04) |
+| one per source false-positive rate "0%–7%" | 0.07/0.00/0.00/0.07 | table above |
+| "40%–80%" single-forecast chance | approximate range of N1 means in Table 1 (0.42–0.79) | N1 |
+
 
 ### Limitations (Sec. 7)
 

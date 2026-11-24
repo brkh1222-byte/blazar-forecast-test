@@ -1,0 +1,696 @@
+{
+  "note": "SIMULATED DATA ONLY. No LCR data were downloaded or read.",
+  "n_rep": 100,
+  "n1_draws": 1000,
+  "rules": [
+    "R1_interior_max",
+    "R2_local_max",
+    "R3_high_state",
+    "R4_cycle_max"
+  ],
+  "frac_significant": {
+    "0.0": {
+      "primary_5": {
+        "R1_interior_max": {
+          "frac_p_below_0p05": 0.01,
+          "median_p": 0.5239827117652529
+        },
+        "R2_local_max": {
+          "frac_p_below_0p05": 0.0,
+          "median_p": 0.7379713321681909
+        },
+        "R3_high_state": {
+          "frac_p_below_0p05": 0.0,
+          "median_p": 0.7047334591177258
+        },
+        "R4_cycle_max": {
+          "frac_p_below_0p05": 0.03,
+          "median_p": 0.6002896649262206
+        }
+      },
+      "all_13": {
+        "R1_interior_max": {
+          "frac_p_below_0p05": 0.1,
+          "median_p": 0.4184055286244639
+        },
+        "R2_local_max": {
+          "frac_p_below_0p05": 0.04,
+          "median_p": 0.6497867893978708
+        },
+        "R3_high_state": {
+          "frac_p_below_0p05": 0.02,
+          "median_p": 0.5161380926834853
+        },
+        "R4_cycle_max": {
+          "frac_p_below_0p05": 0.15,
+          "median_p": 0.4223341056069009
+        }
+      },
+      "one_per_source_phase_folding": {
+        "R1_interior_max": {
+          "frac_p_below_0p05": 0.07,
+          "median_p": 0.48620029037294854
+        },
+        "R2_local_max": {
+          "frac_p_below_0p05": 0.0,
+          "median_p": 0.7557673036531629
+        },
+        "R3_high_state": {
+          "frac_p_below_0p05": 0.0,
+          "median_p": 0.5984484572127078
+        },
+        "R4_cycle_max": {
+          "frac_p_below_0p05": 0.07,
+          "median_p": 0.46934310099172477
+        }
+      }
+    },
+    "0.5": {
+      "primary_5": {
+        "R1_interior_max": {
+          "frac_p_below_0p05": 0.0,
+          "median_p": 0.4975237022329984
+        },
+        "R2_local_max": {
+          "frac_p_below_0p05": 0.0,
+          "median_p": 0.6467816481414655
+        },
+        "R3_high_state": {
+          "frac_p_below_0p05": 0.0,
+          "median_p": 0.520194093834401
+        },
+        "R4_cycle_max": {
+          "frac_p_below_0p05": 0.06,
+          "median_p": 0.3416278161073851
+        }
+      },
+      "all_13": {
+        "R1_interior_max": {
+          "frac_p_below_0p05": 0.24,
+          "median_p": 0.17236265370484397
+        },
+        "R2_local_max": {
+          "frac_p_below_0p05": 0.14,
+          "median_p": 0.3292683287877987
+        },
+        "R3_high_state": {
+          "frac_p_below_0p05": 0.11,
+          "median_p": 0.23705578538843583
+        },
+        "R4_cycle_max": {
+          "frac_p_below_0p05": 0.46,
+          "median_p": 0.05413240970297698
+        }
+      },
+      "one_per_source_phase_folding": {
+        "R1_interior_max": {
+          "frac_p_below_0p05": 0.16,
+          "median_p": 0.2349105995341209
+        },
+        "R2_local_max": {
+          "frac_p_below_0p05": 0.0,
+          "median_p": 0.382567220749672
+        },
+        "R3_high_state": {
+          "frac_p_below_0p05": 0.02,
+          "median_p": 0.3851741862596129
+        },
+        "R4_cycle_max": {
+          "frac_p_below_0p05": 0.32,
+          "median_p": 0.07493277807716689
+        }
+      }
+    },
+    "1.0": {
+      "primary_5": {
+        "R1_interior_max": {
+          "frac_p_below_0p05": 0.03,
+          "median_p": 0.31940404665053107
+        },
+        "R2_local_max": {
+          "frac_p_below_0p05": 0.0,
+          "median_p": 0.48745604462381925
+        },
+        "R3_high_state": {
+          "frac_p_below_0p05": 0.0,
+          "median_p": 0.45419996854468014
+        },
+        "R4_cycle_max": {
+          "frac_p_below_0p05": 0.2,
+          "median_p": 0.2539793972102466
+        }
+      },
+      "all_13": {
+        "R1_interior_max": {
+          "frac_p_below_0p05": 0.43,
+          "median_p": 0.07112764597312779
+        },
+        "R2_local_max": {
+          "frac_p_below_0p05": 0.32,
+          "median_p": 0.08761147235243537
+        },
+        "R3_high_state": {
+          "frac_p_below_0p05": 0.17,
+          "median_p": 0.16363096350977294
+        },
+        "R4_cycle_max": {
+          "frac_p_below_0p05": 0.8,
+          "median_p": 0.0075579179504263305
+        }
+      },
+      "one_per_source_phase_folding": {
+        "R1_interior_max": {
+          "frac_p_below_0p05": 0.28,
+          "median_p": 0.14340637125628497
+        },
+        "R2_local_max": {
+          "frac_p_below_0p05": 0.15,
+          "median_p": 0.1081014249548495
+        },
+        "R3_high_state": {
+          "frac_p_below_0p05": 0.04,
+          "median_p": 0.2949810205088317
+        },
+        "R4_cycle_max": {
+          "frac_p_below_0p05": 0.68,
+          "median_p": 0.012897404827397891
+        }
+      }
+    },
+    "2.0": {
+      "primary_5": {
+        "R1_interior_max": {
+          "frac_p_below_0p05": 0.16,
+          "median_p": 0.21318949953126398
+        },
+        "R2_local_max": {
+          "frac_p_below_0p05": 0.02,
+          "median_p": 0.1442592485677306
+        },
+        "R3_high_state": {
+          "frac_p_below_0p05": 0.0,
+          "median_p": 0.27373208925394854
+        },
+        "R4_cycle_max": {
+          "frac_p_below_0p05": 0.28,
+          "median_p": 0.1133786378453287
+        }
+      },
+      "all_13": {
+        "R1_interior_max": {
+          "frac_p_below_0p05": 0.8,
+          "median_p": 0.007241134989199548
+        },
+        "R2_local_max": {
+          "frac_p_below_0p05": 0.77,
+          "median_p": 0.01420572379719252
+        },
+        "R3_high_state": {
+          "frac_p_below_0p05": 0.53,
+          "median_p": 0.046066698382623686
+        },
+        "R4_cycle_max": {
+          "frac_p_below_0p05": 0.98,
+          "median_p": 0.0018053778211218141
+        }
+      },
+      "one_per_source_phase_folding": {
+        "R1_interior_max": {
+          "frac_p_below_0p05": 0.66,
+          "median_p": 0.017310439950025576
+        },
+        "R2_local_max": {
+          "frac_p_below_0p05": 0.69,
+          "median_p": 0.031718495355489984
+        },
+        "R3_high_state": {
+          "frac_p_below_0p05": 0.12,
+          "median_p": 0.1250904200246593
+        },
+        "R4_cycle_max": {
+          "frac_p_below_0p05": 0.93,
+          "median_p": 0.008956947543621523
+        }
+      }
+    }
+  },
+  "example_first_replicate": {
+    "amplitude": 0.0,
+    "scores": {
+      "S5 1044+71 | ssa_r": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.7449947312961012,
+          "null_evaluable_frac": 0.949
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.7940552016985138,
+          "null_evaluable_frac": 0.942
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.44515441959531415,
+          "null_evaluable_frac": 0.939
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.4835630965005302,
+          "null_evaluable_frac": 0.943
+        }
+      },
+      "TXS 0518+211 | phase_folding": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.4410201912858661,
+          "null_evaluable_frac": 0.941
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.8704883227176221,
+          "null_evaluable_frac": 0.942
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.1689691817215728,
+          "null_evaluable_frac": 0.941
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.3475026567481403,
+          "null_evaluable_frac": 0.941
+        }
+      },
+      "S5 1044+71 | phase_folding": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.76033934252386,
+          "null_evaluable_frac": 0.943
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.8107255520504731,
+          "null_evaluable_frac": 0.951
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.4242749731471536,
+          "null_evaluable_frac": 0.931
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.4456404736275565,
+          "null_evaluable_frac": 0.929
+        }
+      },
+      "S3 0458-02 | phase_folding": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.7989130434782609,
+          "null_evaluable_frac": 0.92
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.7937365010799136,
+          "null_evaluable_frac": 0.926
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.0,
+          "null_evaluable_frac": 0.911
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.42748091603053434,
+          "null_evaluable_frac": 0.917
+        }
+      },
+      "87GB 164812.2+524023 | phase_folding": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.8335123523093448,
+          "null_evaluable_frac": 0.931
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.9085037674919269,
+          "null_evaluable_frac": 0.929
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.0,
+          "null_evaluable_frac": 0.944
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.491005291005291,
+          "null_evaluable_frac": 0.945
+        }
+      },
+      "S4 1144+40 | phase_folding": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.8098290598290598,
+          "null_evaluable_frac": 0.936
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.8224598930481284,
+          "null_evaluable_frac": 0.935
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.0,
+          "null_evaluable_frac": 0.948
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.09722222222222222,
+          "null_evaluable_frac": 0.936
+        }
+      },
+      "PG 1553+113 | ssa_r": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.73475935828877,
+          "null_evaluable_frac": 0.935
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.8793103448275862,
+          "null_evaluable_frac": 0.928
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 1.0,
+          "null_evaluable_frac": 0.94
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.6545064377682404,
+          "null_evaluable_frac": 0.932
+        }
+      },
+      "OJ 014 | phase_folding": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.7247311827956989,
+          "null_evaluable_frac": 0.93
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.7846481876332623,
+          "null_evaluable_frac": 0.938
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.5638297872340425,
+          "null_evaluable_frac": 0.94
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.0719656283566058,
+          "null_evaluable_frac": 0.931
+        }
+      },
+      "S4 1144+40 | ssa_r": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.7628755364806867,
+          "null_evaluable_frac": 0.932
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.7928118393234672,
+          "null_evaluable_frac": 0.946
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.0,
+          "null_evaluable_frac": 0.928
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.019251336898395723,
+          "null_evaluable_frac": 0.935
+        }
+      },
+      "PG 1553+113 | phase_folding": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.649740932642487,
+          "null_evaluable_frac": 0.965
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.7628865979381443,
+          "null_evaluable_frac": 0.97
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 1.0,
+          "null_evaluable_frac": 0.971
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.5308008213552361,
+          "null_evaluable_frac": 0.974
+        }
+      },
+      "OJ 014 | ssa_r": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.6870310825294748,
+          "null_evaluable_frac": 0.933
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.7551020408163265,
+          "null_evaluable_frac": 0.931
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.3467391304347826,
+          "null_evaluable_frac": 0.92
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.0,
+          "null_evaluable_frac": 0.937
+        }
+      },
+      "TXS 0518+211 | ssa_r": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.45240641711229945,
+          "null_evaluable_frac": 0.935
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.8652173913043478,
+          "null_evaluable_frac": 0.92
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.0,
+          "null_evaluable_frac": 0.938
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.2681081081081081,
+          "null_evaluable_frac": 0.925
+        }
+      },
+      "PKS 0215+015 | phase_folding": {
+        "R1_interior_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.7054429028815368,
+          "null_evaluable_frac": 0.937
+        },
+        "R2_local_max": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.8014941302027748,
+          "null_evaluable_frac": 0.937
+        },
+        "R3_high_state": {
+          "evaluable": 1,
+          "hit": 1,
+          "p_chance": 0.6442812172088143,
+          "null_evaluable_frac": 0.953
+        },
+        "R4_cycle_max": {
+          "evaluable": 1,
+          "hit": 0,
+          "p_chance": 0.4305263157894737,
+          "null_evaluable_frac": 0.95
+        }
+      }
+    },
+    "summary": {
+      "primary_5": {
+        "R1_interior_max": {
+          "n_planned": 5,
+          "n_scored": 5,
+          "n_evaluable": 5,
+          "hits": 3,
+          "expected_hits": 3.257496871646485,
+          "p_value": 0.7736824358223701,
+          "complete": true
+        },
+        "R2_local_max": {
+          "n_planned": 5,
+          "n_scored": 5,
+          "n_evaluable": 5,
+          "hits": 4,
+          "expected_hits": 3.9775119995850603,
+          "p_value": 0.7284060296320142,
+          "complete": true
+        },
+        "R3_high_state": {
+          "n_planned": 5,
+          "n_scored": 5,
+          "n_evaluable": 5,
+          "hits": 2,
+          "expected_hits": 1.9910203476435968,
+          "p_value": 0.7676228386331493,
+          "complete": true
+        },
+        "R4_cycle_max": {
+          "n_planned": 5,
+          "n_scored": 5,
+          "n_evaluable": 5,
+          "hits": 1,
+          "expected_hits": 1.2486865821512136,
+          "p_value": 0.8082057584392698,
+          "complete": true
+        }
+      },
+      "all_13": {
+        "R1_interior_max": {
+          "n_planned": 13,
+          "n_scored": 13,
+          "n_evaluable": 13,
+          "hits": 7,
+          "expected_hits": 9.105596133453446,
+          "p_value": 0.9446975405951239,
+          "complete": true
+        },
+        "R2_local_max": {
+          "n_planned": 13,
+          "n_scored": 13,
+          "n_evaluable": 13,
+          "hits": 9,
+          "expected_hits": 10.641439770132488,
+          "p_value": 0.9314757291820215,
+          "complete": true
+        },
+        "R3_high_state": {
+          "n_planned": 13,
+          "n_scored": 13,
+          "n_evaluable": 13,
+          "hits": 4,
+          "expected_hits": 4.59324870934168,
+          "p_value": 0.8284120583408918,
+          "complete": true
+        },
+        "R4_cycle_max": {
+          "n_planned": 13,
+          "n_scored": 13,
+          "n_evaluable": 13,
+          "hits": 2,
+          "expected_hits": 4.267573304410334,
+          "p_value": 0.9717824263391147,
+          "complete": true
+        }
+      },
+      "one_per_source_phase_folding": {
+        "R1_interior_max": {
+          "n_planned": 8,
+          "n_scored": 8,
+          "n_evaluable": 8,
+          "hits": 5,
+          "expected_hits": 5.723529007746115,
+          "p_value": 0.841950326500818,
+          "complete": true
+        },
+        "R2_local_max": {
+          "n_planned": 8,
+          "n_scored": 8,
+          "n_evaluable": 8,
+          "hits": 6,
+          "expected_hits": 6.5549429521622455,
+          "p_value": 0.8392905923613024,
+          "complete": true
+        },
+        "R3_high_state": {
+          "n_planned": 8,
+          "n_scored": 8,
+          "n_evaluable": 8,
+          "hits": 3,
+          "expected_hits": 2.8013551593115835,
+          "p_value": 0.6255587595220216,
+          "complete": true
+        },
+        "R4_cycle_max": {
+          "n_planned": 8,
+          "n_scored": 8,
+          "n_evaluable": 8,
+          "hits": 2,
+          "expected_hits": 2.84214432513506,
+          "p_value": 0.8555813531945837,
+          "complete": true
+        }
+      }
+    }
+  }
+}
