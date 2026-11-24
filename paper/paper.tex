@@ -1,70 +1,193 @@
-% Research Note of the AAS (RNAAS). Compile on Overleaf or with a TeX Live that has AASTeX 6.31:
+% Full draft for Part B (session 2, 2026-11-25). NOT COMPILED: no LaTeX on the machine it was
+% written on. Compile on Overleaf or a TeX Live with AASTeX 6.31:
 %   pdflatex paper && bibtex paper && pdflatex paper && pdflatex paper
-% RNAAS limits: <= 1,000 words of text is typical, 1,500 words hard limit including
-% references and caption, one figure or table, abstract <= 150 words.
-% STUDENT: every line marked "STUDENT" must be checked or filled before submission.
-\documentclass[RNAAS]{aastex631}
+% Every number in this file is listed with its source file in paper/notes.md.
+% Venue is undecided. This is a full-length draft (about 3,000 words). An RNAAS version
+% (hard limit 1,500 words, one figure or table, abstract <= 150 words) would need Sections
+% 4.4, 5.3 and 6 cut to a few sentences; the previous short version is in git history
+% (commit 6d53da4).
+\documentclass[twocolumn]{aastex631}
 
 \newcommand{\Hit}{H}
+\newcommand{\LCR}{LCR}
 
 \begin{document}
 
 \title{How Often Would Gamma-Ray Blazar Period Forecasts Succeed by Chance?\\
 A Null Calibration of the Pe\~nil et al.\ (2026) Forecast Test}
 
-\author[0000-0000-0000-0000]{Berkh [STUDENT: surname]} % STUDENT: ORCID iD or remove the brackets argument
-\affiliation{[STUDENT: school or ``Independent researcher''], [City], [Country]}
-% STUDENT: add the mentor here only if they agree to be a co-author.
+% [AUTHORS — TBD]  Authorship is undecided. Replace the placeholder below.
+\author{[AUTHORS --- TBD]}
+\affiliation{[AFFILIATION --- TBD]}
 
 \begin{abstract}
-Pe\~nil et al.\ (2026) report that 19 of 59 (32\%) forecast $\gamma$-ray peaks of candidate periodic blazars are supported by newer Fermi-LAT data, without a chance baseline. As printed, their matching rule cannot produce a miss. We fixed four candidate rules in advance and compared the forecasts with randomly shifted forecasts and with red-noise simulations. No rule reproduces the published verdicts (Cohen's $\kappa \le 0.34$). Chance hit rates are 42\%--79\% depending on the rule, and the observed rates are consistent with chance under every rule ($p = 0.17$--$0.36$). The best-agreeing rule found afterwards ($\kappa = 0.47$) gives a 29\% chance rate, close to the published 32\% ($p = 0.27$). The test recovers injected sinusoids of half the flux standard deviation in 89\%--100\% of trials. Forecast hit rates need a stated rule and a null before they can support periodicity.
+Pe\~nil et al.\ (2026) report that 19 of 59 (32\%) previously forecast $\gamma$-ray peaks of candidate periodic blazars are supported by newer Fermi-LAT data. They give no estimate of how many forecasts would be supported by chance, and their matching rule, as printed, cannot produce a miss. We wrote down four candidate rules and an analysis plan before scoring public Light Curve Repository data for the same 30 sources. None of the four rules reproduces the published verdicts (best Cohen's $\kappa = 0.34$; our threshold was 0.7), so we report all four. Their chance hit rates, from randomly shifted forecasts, are 42\%--79\%. The observed rates exceed chance by 2--6 percentage points, and none is significant ($p = 0.17$--0.36); red-noise simulations give the same answer ($p = 0.12$--0.98). The same test detects injected sinusoids with half the amplitude of the flux scatter in 89\%--100\% of trials. A rule found after the fact that agrees better with the published verdicts ($\kappa = 0.47$) has a chance rate of 29\%, close to the published 32\%. We conclude that the published hit rate is not, by itself, evidence for periodicity: it needs a stated rule and a null. We could not reproduce the published verdicts, so we cannot calibrate that number directly. We have also registered in advance a test of the authors' 13 new forecasts, whose results are pending.
 \end{abstract}
 
-% STUDENT: check the UAT keyword numbers at https://astrothesaurus.org
+% TODO before submission: check the UAT numbers at https://astrothesaurus.org
 \keywords{Blazars (164) --- Gamma-ray sources (633) --- Time series analysis (1916) --- Supermassive black holes (1663)}
 
-\section{Introduction}
+\section{Introduction} \label{sec:intro}
 
-Claimed multi-year $\gamma$-ray periods in blazars are hard to confirm, because red-noise variability easily imitates two or three cycles \citep{vaughan16}. Forecasting future peaks is a strong test, but only if the chance rate of a ``hit'' is known. \citet{penil26} tested 59 peak forecasts \citep{rico25, penil25c} for 30 blazars and found 19 supported. Their Section 8.1 defines a window $[t_{\rm pred}-0.2T,\,t_{\rm pred}+0.2T]$ for a period $T$, takes the brightest bin in it at $t_{\rm obs}$, and calls the forecast supported if $|t_{\rm obs}-t_{\rm pred}| \le \max(60\,{\rm d},\,0.2T)$. Since $t_{\rm obs}$ lies inside the window, this condition always holds; an unstated step must decide the 40 misses. No chance baseline is given. Here we supply one.
+Several dozen blazars have been reported to brighten in $\gamma$ rays every one to five years \citep[e.g.][]{penil25c, rico25}. A periodic signal of this kind could be a sign of a binary supermassive black hole. Such claims are hard to confirm, because the red-noise variability of active galaxies easily imitates two or three cycles of a period \citep{vaughan16}.
 
-\section{Data and Method}
+A forecast is a stronger test than a periodogram. If the period is real, future peaks can be predicted; if it is a chance pattern in red noise, they should not be. \citet{penil26} applied this test. With 17.3\,yr of Fermi-LAT data they checked 59 peak times forecast earlier \citep{rico25, penil25c} for 30 blazars, and found 19 (32\%) supported. Their abstract states that ``some [predictions] are consistent with the new observations'', and forecast agreement is used as supporting evidence for their final candidates.
 
-We took 30-day photon-flux light curves (fixed index, ${\rm TS}\ge4$ bins) of the 30 sources from the Fermi-LAT Light Curve Repository \citep{abdollahi23}, cut at MJD 61000 (2025 November 24, i.e.\ 17.3\,yr of data as in \citealt{penil26}). Each source's period is the mean spacing of its forecasts (single forecasts: the period in their Table 1), and a forecast month means its 15th day. With fewer than two detected bins in the window, a forecast is not evaluable; 56 of the 59 are evaluable in our data.
+A hit rate means little without the rate expected by chance. A window of $\pm0.2$ of a period around each forecast covers 40\% of the cycle, so even unrelated light curves will often show ``a peak in the window''. \citet{penil26} use simulated light curves to calibrate their periodograms, but we find no chance baseline for the forecast test anywhere in the paper (Section~\ref{sec:published}). This work supplies one.
 
-Before downloading the light curves we wrote down four candidate rules and the full analysis plan (repository file \texttt{preregistration/predictions\_2026.md}). The brightest bin in the window must be (R1) not at the window edge, (R2) brighter than the nearest detected bins outside the window, (R3) above the median $+\,1\sigma$ of the 2008--2020 flux, or (R4) the brightest bin within $\pm0.5T$, lying within the tolerance. A rule counted as reproducing the published verdicts if Cohen's $\kappa\ge0.7$ \citep{cohen60}.
+\section{The published test} \label{sec:published}
 
-The statistic is the pooled hit rate $\Hit$ (hits divided by evaluable forecasts). The primary null, N1, keeps the real light curves and shifts all forecasts of a source by one common random offset drawn uniformly from $[-T/2, T/2]$, 10{,}000 times. The secondary null, N2, keeps the forecasts and replaces each light curve by 1{,}000 simulations \citep{emmanoulopoulos13} with the real gaps. The simulations use the observed 2008--2020 flux distribution and a power-law or bending power-law spectrum fitted to the 2008--2020 data by maximum Whittle likelihood \citep{vaughan10}. They start from \citet{timmer95} red noise. One-sided $p$-values are $(1+\#\{{\rm null}\ge{\rm observed}\})/(1+N)$. We also injected sinusoids peaking at the forecast times into the N2 simulations to measure the power of the test. As a negative control we scored each source's forecasts against another source's light curve.
+Section 8.1 of \citet{penil26} defines the test as follows. For a source with period $T$ and a predicted peak time $t_{\rm pred}$, the window is $[t_{\rm pred}-W,\,t_{\rm pred}+W]$ with $W = 0.20T$. A prediction is evaluable if the window holds at least $N_{\min}=2$ measurements. The observed peak is the maximum flux in the window, at $t_{\rm obs}$. The prediction is compatible with the data if $|t_{\rm obs}-t_{\rm pred}| \le \max(60\,{\rm d},\,0.20T)$.
 
-\section{Results}
+Because $t_{\rm obs}$ lies inside the window, $|t_{\rm obs}-t_{\rm pred}| \le 0.20T$ always holds. As printed, the rule supports every evaluable forecast. Yet their Table A7 marks 40 of 59 forecasts as not supported. Some step that is not stated must decide the outcome.
 
-No candidate rule reproduces the published verdicts: $\kappa = 0.23$, 0.10, 0.34 and 0.23 for R1--R4. Without a primary rule, we report all four (Figure~\ref{fig:1}a). The chance hit rate depends strongly on the rule: the N1 mean is 71\%, 79\%, 47\% and 42\%. Our observed rates (73\%, 84\%, 50\%, 48\%) exceed these by only 2--6 percentage points, about one null standard deviation. None is significant against N1 ($p = 0.36$, 0.19, 0.32, 0.17) or N2 ($p = 0.12$--0.98). The smallest $p$ across the 20 pre-registered N1 variations (window 0.1--0.3$T$, at least 2 or 3 detected bins, Table 1 periods) is 0.055. The negative control is null ($p = 0.76$--0.93).
+We searched the text of the arXiv version for a chance baseline of the hit rate (a simulation, a shuffle or a binomial expectation) and found none. The periods used to place each forecast and the end date of the light curves are also not listed.
 
-After seeing these results we tried combining rules. ``R3 and R4'' agrees best with the published verdicts ($\kappa = 0.47$; 16 hits). Under this exploratory rule the chance rate is 29\% (N1), 28\% (N2 power law) and 34\% (N2 bending power law). The published 19/59 is consistent with all three ($p = 0.27$, 0.21, 0.57).
+\section{Data} \label{sec:data}
 
-The test is not blind to real periodicity (Figure~\ref{fig:1}b). For sinusoids with amplitude 0.5 times the flux standard deviation, it gives $p<0.05$ in 89\%--100\% of 100 realizations, depending on the rule; for 0.25 times, 42\%--90\%. With no signal, the false-positive rate is 1\%--7\%.
+We used the public Fermi-LAT Light Curve Repository \citep[\LCR;][]{abdollahi23}: 30-day bins, photon flux, fixed photon index, and a detection threshold of ${\rm TS}\ge4$, the settings described by \citet{penil26}. A bin is ``detected'' if the \LCR\ gives a flux for it. Light curves were cut at MJD 61000 (2025 November 21), which is 17.3\,yr after the first bin, and placed on a regular 30-day grid of 211 bins. The fraction of undetected bins ranges from 0\% to 46\% (median 9\%).
 
-\begin{figure}[ht!]
+The 59 forecasts and their published verdicts were transcribed from Table A7 of \citet{penil26} and compared by script with the table in the arXiv source. A forecast month is taken as its 15th day. For the 21 sources with two or more forecasts, $T$ is the mean spacing of the forecasts; for the nine sources with one forecast, $T$ is the first previously reported period in their Table 1. The periods range from 1.4 to 5.7\,yr. Data before MJD 59065 (2020 August 4, the first 12\,yr) are called pre-test data. They are used only to model the noise and to set a flux reference level, never to score a forecast.
+
+\section{Method} \label{sec:method}
+
+\subsection{Plan fixed in advance} \label{sec:plan}
+
+The published verdicts and light-curve figures were already known to us. What we fixed in advance was the analysis: the candidate rules, the statistic, the nulls, the robustness grid and the decision rule were written down before our own light curves were downloaded and scored (file \texttt{preregistration/predictions\_2026.md} in the repository). Section~\ref{sec:limits} describes how well this ordering is documented.
+
+Each candidate rule adds one condition to the printed rule. With $k_{\max}$ the brightest detected bin in the window, a forecast is supported if:
+\begin{itemize}
+\item[R1] $k_{\max}$ is not the first or last detected bin in the window (the flux turns over inside the window);
+\item[R2] $k_{\max}$ is brighter than the nearest detected bin on each side of the window;
+\item[R3] the flux at $k_{\max}$ exceeds the median plus one standard deviation of the pre-test detected fluxes (a ``high state'');
+\item[R4] the brightest detected bin within $\pm0.5T$ of $t_{\rm pred}$ lies within the tolerance $\max(60\,{\rm d}, 0.20T)$.
+\end{itemize}
+R0 denotes the rule as printed. A rule was to become our primary rule only if it agreed with the 59 published verdicts with Cohen's $\kappa \ge 0.7$ \citep{cohen60}; otherwise all four would be reported and no single $p$-value claimed. Forecasts that are not evaluable in our data count as not supported when computing $\kappa$.
+
+\subsection{Statistic and nulls} \label{sec:nulls}
+
+The statistic is the pooled hit rate $\Hit$, the number of supported forecasts divided by the number of evaluable forecasts, over all sources.
+
+The primary null, N1, keeps the real light curves and randomizes the forecasts. All forecasts of a source are shifted by one common offset drawn uniformly from $[-T/2,\,T/2]$, which gives them a random phase while keeping their spacing. One draw shifts every source independently and recomputes $\Hit$; we use 10,000 draws. N1 needs no noise model. It asks whether the real forecast phases do better than random phases on the same light curves.
+
+The secondary null, N2, keeps the real forecasts and replaces each light curve by a red-noise simulation. We used the method of \citet{emmanoulopoulos13}, which starts from \citet{timmer95} noise and returns a series with a chosen power spectrum and a chosen flux distribution. The flux distribution is a bootstrap of the pre-test detected fluxes. The spectrum is a power law plus a constant, or a bending power law plus a constant, fitted to the pre-test data by maximizing the Whittle likelihood \citep{vaughan10}. Each simulated light curve has the real pattern of undetected bins. We made 1,000 simulations per source and per spectral model. For R3 the reference level is recomputed from each simulation's own pre-test bins.
+
+One-sided $p$-values are $p = (1+\#\{\Hit_{\rm null}\ge \Hit_{\rm obs}\})/(1+N)$.
+
+\subsection{Power and negative control} \label{sec:checks}
+
+A null result is informative only if the test could have detected a signal. We added sinusoids of period $T$, with maxima at the forecast times, to the N2 power-law simulations. Their amplitude was $a$ times the standard deviation of the detected fluxes, with $a = 0.25$, 0.5, 1 and 2. For each $a$ and each rule, 100 simulated samples of 30 sources were tested with N1 (1,000 draws each), and we record the fraction with $p<0.05$. With $a=0$ this gives the false-positive rate. The injected signals are strictly periodic and exactly in phase with the forecasts, so these powers are upper limits for real, less regular signals.
+
+As a negative control, each source's forecasts were scored against the light curve of the next source in the list. These forecasts carry no information about the light curve they are scored on, so their $p$-values should not be small.
+
+\subsection{Robustness grid}
+
+Also fixed in advance: window half-widths $W = 0.10T$ and $0.30T$; $N_{\min}=3$; and $T$ taken from Table 1 of \citet{penil26} for every source. With the four primary settings this gives 20 N1 tests of R1--R4.
+
+\section{Results} \label{sec:results}
+
+\subsection{The published verdicts are not reproduced}
+
+Of the 59 forecasts, 56 are evaluable in our data. The three that are not are all marked as not supported by \citet{penil26}. R0 supports all 56, as expected. The agreement of R1--R4 with the published verdicts is $\kappa = 0.23$, 0.10, 0.34 and 0.23 (Table~\ref{tab:main}). The best rule, R3, agrees on 40 of 59 forecasts: it supports 14 of the 19 published hits and also 14 of the 40 published misses. No rule reaches $\kappa=0.7$, so by our plan there is no primary rule and we report all four.
+
+\begin{deluxetable*}{lccccccccc}
+\tablecaption{Forecast hit rates and their chance expectations\label{tab:main}}
+\tablehead{
+\colhead{Rule} & \colhead{$\kappa$} & \colhead{Hits/eval.} & \colhead{$\Hit_{\rm obs}$} &
+\colhead{N1 mean $\pm$ s.d.} & \colhead{$p_{\rm N1}$} &
+\colhead{N2 PL mean ($p$)} & \colhead{N2 BPL mean ($p$)} &
+\multicolumn{2}{c}{Power at $a=$} \\
+\colhead{} & \colhead{} & \colhead{} & \colhead{} & \colhead{} & \colhead{} & \colhead{} & \colhead{} &
+\colhead{0.25} & \colhead{0.5}
+}
+\startdata
+R1 interior maximum & 0.23 & 41/56 & 0.73 & $0.71\pm0.06$ & 0.36 & 0.72 (0.46) & 0.71 (0.41) & 0.61 & 0.96 \\
+R2 local maximum & 0.10 & 47/56 & 0.84 & $0.79\pm0.06$ & 0.19 & 0.77 (0.13) & 0.78 (0.18) & 0.62 & 0.94 \\
+R3 high state & 0.34 & 28/56 & 0.50 & $0.47\pm0.04$ & 0.32 & 0.54 (0.75) & 0.61 (0.98) & 0.42 & 0.89 \\
+R4 cycle maximum & 0.23 & 27/56 & 0.48 & $0.42\pm0.07$ & 0.17 & 0.39 (0.12) & 0.41 (0.18) & 0.90 & 1.00 \\
+\hline
+X1 = R3 and R4 (exploratory) & 0.47 & 16/56 & 0.29 & $0.29\pm0.06$ & 0.53 & 0.28 (0.51) & 0.34 (0.85) & \nodata & \nodata \\
+\enddata
+\tablecomments{$\kappa$: Cohen's agreement with the 59 verdicts of \citet{penil26}, who report 19/59 = 0.32. $\Hit_{\rm obs}$: our pooled hit rate. N1: randomly shifted forecasts on the real light curves (10,000 draws). N2: real forecasts on red-noise simulations with a power-law (PL) or bending power-law (BPL) spectrum (1,000 per source). Power: fraction of 100 simulated samples with an injected sinusoid of amplitude $a$ flux standard deviations for which the N1 test gives $p<0.05$. X1 was chosen after seeing the verdicts of R1--R4.}
+\end{deluxetable*}
+
+\subsection{No rule beats chance}
+
+The chance hit rate depends strongly on the rule (Figure~\ref{fig:1}a). Under N1 it is 71\%, 79\%, 47\% and 42\% for R1--R4. Our observed rates are 73\%, 84\%, 50\% and 48\%. They exceed the N1 means by 2, 5, 3 and 6 percentage points, which is 0.4 to 0.9 null standard deviations, and none is significant ($p_{\rm N1} = 0.36$, 0.19, 0.32, 0.17). The red-noise null agrees: $p_{\rm N2} = 0.12$--0.75 with a power-law spectrum and 0.18--0.98 with a bending power law.
+
+Across the 20 pre-specified N1 tests the smallest $p$-value is 0.055 (R1 with $W=0.10T$) and the largest is 0.66. With 20 tests, one value near 0.05 is expected by chance.
+
+\begin{figure*}[ht!]
 \plotone{fig1.pdf}
-\caption{(a) Pooled forecast hit rate for each matching rule. Grey bars: 68\% and 95\% ranges of the randomized-forecast null (N1); dark tick: null median; blue dot: observed rate in our light curves; $p$: one-sided N1 $p$-value. Dashed line: 19/59 reported by \citet{penil26}. X1 was chosen after seeing the data. (b) Fraction of 100 red-noise simulations with an injected sinusoid that the N1 test flags at $p<0.05$, versus amplitude in units of the flux standard deviation.\label{fig:1}}
-\end{figure}
+\caption{(a) Pooled forecast hit rate for each matching rule. Grey bars: 68\% and 95\% ranges of the randomized-forecast null (N1); dark tick: null median; blue dot: observed rate in our light curves; $p$: one-sided N1 $p$-value. Dashed line: the 19/59 reported by \citet{penil26}. X1 was chosen after seeing the results. (b) Fraction of 100 simulated samples with an injected sinusoid for which the N1 test gives $p<0.05$, against the amplitude in units of the flux standard deviation.\label{fig:1}}
+\end{figure*}
 
-\section{Discussion}
+\subsection{The test can detect periodic signals}
 
-A 32\% forecast success rate is not evidence for periodicity by itself. Under the rules we tried, chance alone supports 29\%--79\% of these forecasts. The forecasts never beat their own randomly shifted copies by more than about one standard deviation, although the test detects modest injected signals. This does not show that the candidates are not periodic. A weak signal ($\lesssim0.25$ times the flux scatter) could be missed. Our light curves and periods may also differ from those used by \citet{penil26}, whose exact rule is not stated.
-% STUDENT: once you have emailed the authors, you may write that their rule was requested.
-Their Section 8 results need a stated rule and a null before they can count as support.
+For sinusoids with half the amplitude of the flux scatter ($a=0.5$) the N1 test gives $p<0.05$ in 89\%--100\% of simulated samples, depending on the rule (Figure~\ref{fig:1}b). For $a=0.25$ the power is 42\%--90\%; for $a\ge1$ it is 100\%. With no signal the false-positive rate is 1\%--7\%, consistent with the nominal 5\% for 100 samples. The negative control gives $p = 0.93$, 0.80, 0.84 and 0.76 for R1--R4.
 
-We have also pre-registered a blind test of the 13 new forecasts in their Table 3. The five windows that open after 2026 November 22 form the primary test, and each forecast will be scored three months after its window closes.
+\subsection{Exploratory analyses} \label{sec:explore}
+
+The analyses in this subsection were made after the results above were known. They are not confirmatory.
+
+\textit{A better-agreeing rule.} Requiring R3 and R4 together (``X1'') is the pair of rules that agrees best with the published verdicts ($\kappa=0.47$; 16 hits). Its chance rate is much lower: 29\% under N1, and 28\% and 34\% under the two N2 models. Our observed rate with X1 is 29\% ($p_{\rm N1}=0.53$). The published 19/59 = 32\% is also consistent with these null distributions ($p = 0.27$, 0.21 and 0.57), although this comparison mixes the authors' verdicts with our rule. Adding R1 as a third condition raises $\kappa$ to 0.54, but the gain comes from the two forecasts of one source; when each source in turn is left out while the combination is chosen, the pooled agreement is $\kappa=0.47$.
+
+\textit{Was the best rule a lucky pick?} R3 is the best of the four rules whichever single source is left out, so $\kappa=0.34$ is not inflated by the choice among four. A bootstrap over sources gives a 95\% interval of 0.09--0.60, below our threshold. Shuffling the published verdicts among the forecasts gives a largest $\kappa$ among the four rules as high as 0.34 in 0.8\% of shuffles. R3 therefore captures part of the unstated rule, but far from all of it.
+
+\textit{Negative control with every shift.} We repeated the negative control for all 29 cyclic shifts of the source list. For R1--R3 the $p$-values are spread as expected (medians 0.54, 0.45, 0.46; at most 2 of 29 below 0.05). For R4 they are too small (median 0.31; 3 of 29 below 0.05), and unrelated forecasts beat their own shifted copies by 4 percentage points on average. N1 is therefore somewhat lenient for R4, probably because the $\pm0.5T$ search of a shifted forecast more often runs past the end of the data. The R4 excess in Table~\ref{tab:main} (6 points, $p=0.17$) is thus overstated.
+
+\textit{Forecasts extrapolated from red noise.} Both nulls treat a chance forecast as having a random phase. Real forecasts were extrapolated from the light curve itself, and red noise has memory. We fitted a sinusoid to the first 12\,yr of each power-law simulation, forecast its later maxima and scored them. With the period fixed at $T$, these forecasts hit as often as random-phase forecasts (differences within one percentage point). When the best-fitting period between 1 and 6\,yr is chosen first, they hit 1--3 percentage points more often. The chance rates in Table~\ref{tab:main} are thus slightly low, if anything.
+
+\section{A test of the 2026 forecasts registered in advance} \label{sec:partc}
+
+\citet{penil26} give new forecasts for eight sources in their Table 3, from phase folding and, for five sources, from singular spectrum analysis. We registered a test of the first forecast peak of each of the 13 source--method pairs in the public repository on 2026 November 24, with the clarifications of 2026 November 25 listed in the repository. Each forecast will be scored once, three months after its window ($\pm0.20T$) closes, with rules R1--R4, since no primary rule exists. The chance probability of each forecast will come from N1 on that source's light curve, and the total number of hits will be compared with the Poisson-binomial distribution of those probabilities. The primary test uses the five forecasts whose windows opened after registration; the secondary test uses all 13. No \LCR\ flux after MJD 61000 has been saved or inspected for any source: our download code discards later bins before anything is stored. One caveat is that an early check of data availability for four of these sources recorded bin dates up to 2026 October, and our notes do not say whether fluxes were displayed.
+
+No forecast can be scored yet. The first two scoring dates are 2027 January 28, and the last is 2030 January 15, so the primary test cannot be completed before 2030.
+% DRY-RUN SENTENCE (filled from results/partC_dryrun.json; see paper/notes.md):
+DRYRUNSENTENCE
+
+\section{Limitations} \label{sec:limits}
+
+\textit{We did not reproduce the published verdicts.} Our best pre-specified rule agrees with them only moderately. The periods, the end date of the light curves and the deciding step of the rule are not given by \citet{penil26}, and we have not contacted the authors. We therefore cannot say what the chance rate of \emph{their} procedure is. Our statement is narrower: for four plausible readings of their rule, and for the best-agreeing rule we could find, the forecasts do no better than chance.
+
+\textit{A weak signal could be missed.} Power is 42\%--90\% for a sinusoid with a quarter of the flux scatter, and the injected signals are idealized. Our result does not show that these sources are not periodic. A test pooled over 30 sources also says little about any single source; PG\,1553+113, for example, has three of three forecasts supported in the published table.
+
+\textit{The nulls are approximate.} N1 is lenient for R4 (Section~\ref{sec:explore}). Neither null repeats the original forecasting procedures (singular spectrum analysis and phase folding) on simulated data; our sinusoid proxy suggests the effect is 1--3 percentage points. The N2 spectra are fitted to gap-filled light curves of only 12\,yr.
+
+\textit{Data differences.} Three forecasts are not evaluable in our data, and windows of forecasts in the second half of 2025 are cut by our end date. Forecast times are known only to the month.
+
+\textit{How well the advance plan is documented.} The published verdicts were known when the candidate rules were written, so the rules are not blind to them; only the analysis of our own light curves was planned in advance. The plan was not publicly time-stamped before the results: plan and results entered the public repository in the same commit on 2026 November 24. The evidence that the plan came first is a list of file hashes that we recorded locally before the download. One analysis file, the matching code, did not match its recorded hash. We reconstructed the recorded version exactly (same SHA-256): the later edit only added the exploratory rule X1. Re-running the whole analysis with the recorded version gives byte-identical results. File times also indicate that a short low-precision run of the same script preceded the full run. The driver script was not in the hash list. Details are in the repository file \texttt{preregistration/2026-11-25\_amendment\_2.md}.
+
+\textit{Reported deviations.} The planned effect size (observed minus mean null hit count) is biased upward because shifted forecasts can become non-evaluable; we report hit-rate differences instead. Light curves were placed on a regular grid because some bins are absent from the \LCR.
+
+\section{Conclusions} \label{sec:conclusions}
+
+\begin{enumerate}
+\item The forecast-matching rule of \citet{penil26}, as printed, supports every evaluable forecast. The step that produces their 40 misses is not stated, and we could not recover it ($\kappa\le0.34$ for four rules fixed in advance).
+\item The chance hit rate depends on that missing step. It ranges from 42\% to 79\% for the four rules, and is 29\% for the best-agreeing rule found afterwards.
+\item Under every rule the forecasts hit about as often as randomly shifted forecasts and as red-noise light curves ($p\ge0.055$ in all 20 pre-specified N1 tests and $p\ge0.12$ against red noise), although the test would detect a sinusoid of half the flux scatter in at least 89\% of cases.
+\item A 32\% hit rate is therefore not, by itself, evidence for periodicity. Forecast tests of periodicity candidates should state the complete rule and report the chance rate under the same rule.
+\item A test of the 13 new forecasts of \citet{penil26} is registered and will be reported as the data arrive.
+\end{enumerate}
 
 \begin{acknowledgments}
-This work uses public Fermi-LAT Light Curve Repository data provided by the Fermi Science Support Center. % STUDENT: thank your mentor and anyone who helped.
-\textbf{Use of AI.} Claude (Anthropic; Claude Opus 5.5) wrote the analysis code and drafted this text at the author's direction. % STUDENT: once true, add "The author checked every step, reran all scripts and revised the text, and takes full responsibility for the content." Check the current arXiv and AAS policies.
+This work uses public data from the Fermi-LAT Light Curve Repository, provided by the Fermi Science Support Center.
+
+[AI-USE STATEMENT --- TBD]
+% Facts for whoever writes the statement (check before use):
+% - Session 1 (2026-11-22): an AI assistant (Claude, Anthropic; the earlier draft named the model
+%   "Claude Opus 5.5", not re-verified) wrote the analysis code, the analysis plan and a first short draft.
+% - Session 2 (2026-11-25): Claude (Anthropic; model "Claude Fable 5.2") ran unattended: it resolved the
+%   hash mismatch, re-ran Part B, added the exploratory checks and the Part C code, verified the references
+%   and wrote this draft.
+% - Check the current AAS and arXiv policies on generative AI. AI tools cannot be authors.
 \end{acknowledgments}
 
-\noindent\textbf{Data and code availability.} Code, the pre-registration and all inputs needed to regenerate Figure~\ref{fig:1} are at [STUDENT: public repository URL, ideally archived on Zenodo with a DOI].
+\noindent\textbf{Data and code availability.} The code, the analysis plan with its amendments, the transcribed tables and all result files are at \url{https://github.com/brkh1222-byte/blazar-forecast-test}. % TODO: archive a release on Zenodo and cite the DOI.
 
 \facilities{Fermi (LAT)}
 \software{NumPy, SciPy, pandas, Matplotlib}
+% TODO: add \citep references for the software packages if the journal requires them (not yet in refs.bib).
 
 \bibliography{refs}{}
 \bibliographystyle{aasjournal}
