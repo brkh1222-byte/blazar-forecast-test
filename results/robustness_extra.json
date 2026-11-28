@@ -1,0 +1,367 @@
+{
+  "note": "Exploratory robustness checks added 2026-11-28; see scripts/robustness_extra.py.",
+  "baseline_check": {
+    "R1_interior_max": {
+      "hits_match": true,
+      "H_obs_match": true,
+      "p_this_seed": 0.35076492350764926,
+      "p_registered_run": 0.3578642135786421
+    },
+    "R2_local_max": {
+      "hits_match": true,
+      "H_obs_match": true,
+      "p_this_seed": 0.19418058194180582,
+      "p_registered_run": 0.19208079192080793
+    },
+    "R3_high_state": {
+      "hits_match": true,
+      "H_obs_match": true,
+      "p_this_seed": 0.3087691230876912,
+      "p_registered_run": 0.3150684931506849
+    },
+    "R4_cycle_max": {
+      "hits_match": true,
+      "H_obs_match": true,
+      "p_this_seed": 0.1603839616038396,
+      "p_registered_run": 0.1663833616638336
+    }
+  },
+  "A_end_date": {
+    "end MJD 60800 | R1_interior_max": {
+      "kappa": 0.1961852861035423,
+      "hits": 34,
+      "evaluable": 52,
+      "H_obs": 0.6538461538461539,
+      "N1_mean": 0.7023798304120242,
+      "p_N1": 0.7718228177182281
+    },
+    "end MJD 60800 | R2_local_max": {
+      "kappa": 0.14845360824742282,
+      "hits": 39,
+      "evaluable": 52,
+      "H_obs": 0.75,
+      "N1_mean": 0.7784582337490114,
+      "p_N1": 0.702929707029297
+    },
+    "end MJD 60800 | R3_high_state": {
+      "kappa": 0.42648845686512754,
+      "hits": 25,
+      "evaluable": 52,
+      "H_obs": 0.4807692307692308,
+      "N1_mean": 0.46906832220716094,
+      "p_N1": 0.37896210378962103
+    },
+    "end MJD 60800 | R4_cycle_max": {
+      "kappa": 0.2114216281895505,
+      "hits": 25,
+      "evaluable": 52,
+      "H_obs": 0.4807692307692308,
+      "N1_mean": 0.42021025114991517,
+      "p_N1": 0.19858014198580143
+    },
+    "end MJD 60900 | R1_interior_max": {
+      "kappa": 0.27010309278350514,
+      "hits": 39,
+      "evaluable": 56,
+      "H_obs": 0.6964285714285714,
+      "N1_mean": 0.7125469724635292,
+      "p_N1": 0.6143385661433857
+    },
+    "end MJD 60900 | R2_local_max": {
+      "kappa": 0.10562347188264065,
+      "hits": 44,
+      "evaluable": 56,
+      "H_obs": 0.7857142857142857,
+      "N1_mean": 0.7846823080242031,
+      "p_N1": 0.5036496350364964
+    },
+    "end MJD 60900 | R3_high_state": {
+      "kappa": 0.3708530805687204,
+      "hits": 27,
+      "evaluable": 56,
+      "H_obs": 0.48214285714285715,
+      "N1_mean": 0.47525986013469007,
+      "p_N1": 0.42215778422157785
+    },
+    "end MJD 60900 | R4_cycle_max": {
+      "kappa": 0.18596280743851237,
+      "hits": 26,
+      "evaluable": 56,
+      "H_obs": 0.4642857142857143,
+      "N1_mean": 0.4179268288463954,
+      "p_N1": 0.25607439256074394
+    }
+  },
+  "B_day_of_month": {
+    "day 1 | R1_interior_max": {
+      "kappa": 0.32251622566150784,
+      "hits": 42,
+      "evaluable": 56,
+      "H_obs": 0.75,
+      "N1_mean": 0.7073068788902214,
+      "p_N1": 0.25617438256174385
+    },
+    "day 1 | R2_local_max": {
+      "kappa": 0.10562347188264065,
+      "hits": 44,
+      "evaluable": 56,
+      "H_obs": 0.7857142857142857,
+      "N1_mean": 0.786693455419618,
+      "p_N1": 0.5238476152384761
+    },
+    "day 1 | R3_high_state": {
+      "kappa": 0.3708530805687204,
+      "hits": 27,
+      "evaluable": 56,
+      "H_obs": 0.48214285714285715,
+      "N1_mean": 0.471684138880956,
+      "p_N1": 0.38876112388761125
+    },
+    "day 1 | R4_cycle_max": {
+      "kappa": 0.2567486502699459,
+      "hits": 26,
+      "evaluable": 56,
+      "H_obs": 0.4642857142857143,
+      "N1_mean": 0.41593231889220006,
+      "p_N1": 0.22867713228677133
+    },
+    "day 28 | R1_interior_max": {
+      "kappa": 0.15130527437400107,
+      "hits": 36,
+      "evaluable": 56,
+      "H_obs": 0.6428571428571429,
+      "N1_mean": 0.7078774732109391,
+      "p_N1": 0.8554144585541446
+    },
+    "day 28 | R2_local_max": {
+      "kappa": 0.10317825886688162,
+      "hits": 50,
+      "evaluable": 56,
+      "H_obs": 0.8928571428571429,
+      "N1_mean": 0.7874589901148719,
+      "p_N1": 0.024197580241975804
+    },
+    "day 28 | R3_high_state": {
+      "kappa": 0.3179190751445088,
+      "hits": 29,
+      "evaluable": 56,
+      "H_obs": 0.5178571428571429,
+      "N1_mean": 0.4730525906076551,
+      "p_N1": 0.18038196180381963
+    },
+    "day 28 | R4_cycle_max": {
+      "kappa": 0.23104265402843593,
+      "hits": 27,
+      "evaluable": 56,
+      "H_obs": 0.48214285714285715,
+      "N1_mean": 0.41759041126810315,
+      "p_N1": 0.16248375162483752
+    }
+  },
+  "C_R3_threshold": {
+    "k = 0.5 | R3_high_state": {
+      "kappa": 0.32479564032697544,
+      "hits": 34,
+      "evaluable": 56,
+      "H_obs": 0.6071428571428571,
+      "N1_mean": 0.6050872989387622,
+      "p_N1": 0.49775022497750226
+    },
+    "k = 1.5 | R3_high_state": {
+      "kappa": 0.39564660691421244,
+      "hits": 21,
+      "evaluable": 56,
+      "H_obs": 0.375,
+      "N1_mean": 0.367292852276517,
+      "p_N1": 0.43785621437856215
+    },
+    "k = 2.0 | R3_high_state": {
+      "kappa": 0.42479108635097496,
+      "hits": 15,
+      "evaluable": 56,
+      "H_obs": 0.26785714285714285,
+      "N1_mean": 0.3025735648909182,
+      "p_N1": 0.7976202379762024
+    },
+    "k = 1, reference from whole light curve | R3_high_state": {
+      "kappa": 0.3708530805687204,
+      "hits": 27,
+      "evaluable": 56,
+      "H_obs": 0.48214285714285715,
+      "N1_mean": 0.49446535644909473,
+      "p_N1": 0.5883411658834117
+    }
+  },
+  "ABC_summary": {
+    "n_cells": 20,
+    "min_p": 0.024197580241975804,
+    "max_p": 0.8554144585541446,
+    "max_kappa": 0.42648845686512754,
+    "cell_of_min_p": {
+      "check": "B_day_of_month",
+      "setting": "day 28",
+      "rule": "R2_local_max"
+    },
+    "cell_of_max_kappa": {
+      "check": "A_end_date",
+      "setting": "end MJD 60800",
+      "rule": "R3_high_state"
+    }
+  },
+  "D_leave_one_source_out": {
+    "R1_interior_max": {
+      "min_p": 0.21247875212478753,
+      "source_removed_at_min": "TXS 1452+516",
+      "max_p": 0.45935406459354067,
+      "source_removed_at_max": "PKS 1510\u2212089",
+      "kappa_min": 0.1946902654867257,
+      "kappa_max": 0.2668810289389068
+    },
+    "R2_local_max": {
+      "min_p": 0.06919308069193081,
+      "source_removed_at_min": "PKS 0447\u2212439",
+      "max_p": 0.254974502549745,
+      "source_removed_at_max": "S4 1030+41",
+      "kappa_min": 0.06677613574165298,
+      "kappa_max": 0.12826837691169216
+    },
+    "R3_high_state": {
+      "min_p": 0.1777822217778222,
+      "source_removed_at_min": "GB6 J0043+3426",
+      "max_p": 0.3775622437756224,
+      "source_removed_at_max": "S4 1250+53",
+      "kappa_min": 0.2887700534759358,
+      "kappa_max": 0.38554216867469876
+    },
+    "R4_cycle_max": {
+      "min_p": 0.104989501049895,
+      "source_removed_at_min": "GB6 J0043+3426",
+      "max_p": 0.293970602939706,
+      "source_removed_at_max": "PG 1553+113",
+      "kappa_min": 0.1630434782608694,
+      "kappa_max": 0.2682926829268293
+    }
+  },
+  "E_seed": {
+    "R1_interior_max": {
+      "min_p": 0.3437656234376562,
+      "max_p": 0.35826417358264173
+    },
+    "R2_local_max": {
+      "min_p": 0.18948105189481051,
+      "max_p": 0.201979802019798
+    },
+    "R3_high_state": {
+      "min_p": 0.3080691930806919,
+      "max_p": 0.31866813318668136
+    },
+    "R4_cycle_max": {
+      "min_p": 0.15898410158984103,
+      "max_p": 0.17298270172982702
+    }
+  },
+  "F_negative_control_calibration": {
+    "R1_interior_max": {
+      "observed_excess": 0.023189216060435114,
+      "control_excess_mean": 0.00750098385201219,
+      "control_excess_sd": 0.06608609073034835,
+      "n_control": 29,
+      "n_control_at_least_observed": 13,
+      "empirical_p": 0.4666666666666667
+    },
+    "R2_local_max": {
+      "observed_excess": 0.051595049929964665,
+      "control_excess_mean": 0.005883449805073079,
+      "control_excess_sd": 0.04885548495201198,
+      "n_control": 29,
+      "n_control_at_least_observed": 6,
+      "empirical_p": 0.23333333333333334
+    },
+    "R3_high_state": {
+      "observed_excess": 0.026984708335724306,
+      "control_excess_mean": -0.0003045779408973058,
+      "control_excess_sd": 0.041329403938779104,
+      "n_control": 29,
+      "n_control_at_least_observed": 7,
+      "empirical_p": 0.26666666666666666
+    },
+    "R4_cycle_max": {
+      "observed_excess": 0.06413347322571117,
+      "control_excess_mean": 0.040706126197979066,
+      "control_excess_sd": 0.06041230293353532,
+      "n_control": 29,
+      "n_control_at_least_observed": 11,
+      "empirical_p": 0.4
+    }
+  },
+  "F_note": "The 29 control pairings share light curves and forecasts, so they are not independent; the smallest possible empirical p is 1/30.",
+  "G_two_sided_N2": {
+    "PL | R1_interior_max": {
+      "p_upper": 0.4565434565434565,
+      "p_lower": 0.6773226773226774,
+      "p_two_sided": 0.913086913086913
+    },
+    "PL | R2_local_max": {
+      "p_upper": 0.13186813186813187,
+      "p_lower": 0.9250749250749251,
+      "p_two_sided": 0.26373626373626374
+    },
+    "PL | R3_high_state": {
+      "p_upper": 0.7542457542457542,
+      "p_lower": 0.3226773226773227,
+      "p_two_sided": 0.6453546453546454
+    },
+    "PL | R4_cycle_max": {
+      "p_upper": 0.11588411588411589,
+      "p_lower": 0.919080919080919,
+      "p_two_sided": 0.23176823176823177
+    },
+    "BPL | R1_interior_max": {
+      "p_upper": 0.4125874125874126,
+      "p_lower": 0.7002997002997003,
+      "p_two_sided": 0.8251748251748252
+    },
+    "BPL | R2_local_max": {
+      "p_upper": 0.18281718281718282,
+      "p_lower": 0.903096903096903,
+      "p_two_sided": 0.36563436563436563
+    },
+    "BPL | R3_high_state": {
+      "p_upper": 0.975024975024975,
+      "p_lower": 0.05194805194805195,
+      "p_two_sided": 0.1038961038961039
+    },
+    "BPL | R4_cycle_max": {
+      "p_upper": 0.1798201798201798,
+      "p_lower": 0.8881118881118881,
+      "p_two_sided": 0.3596403596403596
+    }
+  },
+  "H_source_level": {
+    "published": {
+      "all": 7,
+      "none": 15,
+      "mixed": 8
+    },
+    "R1_interior_max": {
+      "all": 17,
+      "none": 5,
+      "mixed": 8
+    },
+    "R2_local_max": {
+      "all": 21,
+      "none": 1,
+      "mixed": 8
+    },
+    "R3_high_state": {
+      "all": 12,
+      "none": 10,
+      "mixed": 8
+    },
+    "R4_cycle_max": {
+      "all": 9,
+      "none": 11,
+      "mixed": 10
+    }
+  }
+}

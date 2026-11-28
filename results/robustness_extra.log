@@ -1,0 +1,246 @@
+[    3s] baseline plan (end 61000, day 15, k=1)
+[    5s] A_end_date end MJD 60800
+[    8s] A_end_date end MJD 60900
+[   11s] B_day_of_month day 1
+[   15s] B_day_of_month day 28
+[   16s] C_R3_threshold k = 0.5
+[   17s] C_R3_threshold k = 1.5
+[   17s] C_R3_threshold k = 2.0
+[   18s] C_R3_threshold k = 1, reference from whole light curve
+[   20s] D_leave_one_source_out GB6 J0043+3426
+[   23s] D_leave_one_source_out S2 0109+22
+[   26s] D_leave_one_source_out 3C 66A
+[   30s] D_leave_one_source_out PKS 0405−385
+[   34s] D_leave_one_source_out PKS 0447−439
+[   39s] D_leave_one_source_out PKS 0454−234
+[   44s] D_leave_one_source_out PKS 0524−485
+[   48s] D_leave_one_source_out S5 0716+714
+[   53s] D_leave_one_source_out OJ 014
+[   58s] D_leave_one_source_out S4 1030+41
+[   62s] D_leave_one_source_out S4 1030+61
+[   67s] D_leave_one_source_out S5 1039+81
+[   71s] D_leave_one_source_out S5 1044+71
+[   76s] D_leave_one_source_out S4 1144+40
+[   80s] D_leave_one_source_out 4C +04.42
+[   85s] D_leave_one_source_out S5 1221+80
+[   93s] D_leave_one_source_out S4 1250+53
+[   99s] D_leave_one_source_out OP 313
+[  106s] D_leave_one_source_out TXS 1452+516
+[  112s] D_leave_one_source_out PKS 1510−089
+[  119s] D_leave_one_source_out TXS 1530−131
+[  126s] D_leave_one_source_out PG 1553+113
+[  132s] D_leave_one_source_out 87GB 164812.2+524023
+[  138s] D_leave_one_source_out PKS 1716−771
+[  146s] D_leave_one_source_out PKS 1903−80
+[  151s] D_leave_one_source_out MH 2136−428
+[  156s] D_leave_one_source_out PKS 2155−304
+[  162s] D_leave_one_source_out PKS 2155−83
+[  167s] D_leave_one_source_out BL Lacertae
+[  171s] D_leave_one_source_out B2 2234+28A
+[  176s] E_seed seed 1
+[  180s] E_seed seed 2
+[  184s] E_seed seed 3
+[  188s] E_seed seed 4
+[  194s] E_seed seed 5
+{
+ "note": "Exploratory robustness checks added 2026-11-28; see scripts/robustness_extra.py.",
+ "baseline_check": {
+  "R1_interior_max": {
+   "hits_match": true,
+   "H_obs_match": true,
+   "p_this_seed": 0.35076492350764926,
+   "p_registered_run": 0.3578642135786421
+  },
+  "R2_local_max": {
+   "hits_match": true,
+   "H_obs_match": true,
+   "p_this_seed": 0.19418058194180582,
+   "p_registered_run": 0.19208079192080793
+  },
+  "R3_high_state": {
+   "hits_match": true,
+   "H_obs_match": true,
+   "p_this_seed": 0.3087691230876912,
+   "p_registered_run": 0.3150684931506849
+  },
+  "R4_cycle_max": {
+   "hits_match": true,
+   "H_obs_match": true,
+   "p_this_seed": 0.1603839616038396,
+   "p_registered_run": 0.1663833616638336
+  }
+ },
+ "ABC_summary": {
+  "n_cells": 20,
+  "min_p": 0.024197580241975804,
+  "max_p": 0.8554144585541446,
+  "max_kappa": 0.42648845686512754,
+  "cell_of_min_p": {
+   "check": "B_day_of_month",
+   "setting": "day 28",
+   "rule": "R2_local_max"
+  },
+  "cell_of_max_kappa": {
+   "check": "A_end_date",
+   "setting": "end MJD 60800",
+   "rule": "R3_high_state"
+  }
+ },
+ "D_leave_one_source_out": {
+  "R1_interior_max": {
+   "min_p": 0.21247875212478753,
+   "source_removed_at_min": "TXS 1452+516",
+   "max_p": 0.45935406459354067,
+   "source_removed_at_max": "PKS 1510\u2212089",
+   "kappa_min": 0.1946902654867257,
+   "kappa_max": 0.2668810289389068
+  },
+  "R2_local_max": {
+   "min_p": 0.06919308069193081,
+   "source_removed_at_min": "PKS 0447\u2212439",
+   "max_p": 0.254974502549745,
+   "source_removed_at_max": "S4 1030+41",
+   "kappa_min": 0.06677613574165298,
+   "kappa_max": 0.12826837691169216
+  },
+  "R3_high_state": {
+   "min_p": 0.1777822217778222,
+   "source_removed_at_min": "GB6 J0043+3426",
+   "max_p": 0.3775622437756224,
+   "source_removed_at_max": "S4 1250+53",
+   "kappa_min": 0.2887700534759358,
+   "kappa_max": 0.38554216867469876
+  },
+  "R4_cycle_max": {
+   "min_p": 0.104989501049895,
+   "source_removed_at_min": "GB6 J0043+3426",
+   "max_p": 0.293970602939706,
+   "source_removed_at_max": "PG 1553+113",
+   "kappa_min": 0.1630434782608694,
+   "kappa_max": 0.2682926829268293
+  }
+ },
+ "E_seed": {
+  "R1_interior_max": {
+   "min_p": 0.3437656234376562,
+   "max_p": 0.35826417358264173
+  },
+  "R2_local_max": {
+   "min_p": 0.18948105189481051,
+   "max_p": 0.201979802019798
+  },
+  "R3_high_state": {
+   "min_p": 0.3080691930806919,
+   "max_p": 0.31866813318668136
+  },
+  "R4_cycle_max": {
+   "min_p": 0.15898410158984103,
+   "max_p": 0.17298270172982702
+  }
+ },
+ "F_negative_control_calibration": {
+  "R1_interior_max": {
+   "observed_excess": 0.023189216060435114,
+   "control_excess_mean": 0.00750098385201219,
+   "control_excess_sd": 0.06608609073034835,
+   "n_control": 29,
+   "n_control_at_least_observed": 13,
+   "empirical_p": 0.4666666666666667
+  },
+  "R2_local_max": {
+   "observed_excess": 0.051595049929964665,
+   "control_excess_mean": 0.005883449805073079,
+   "control_excess_sd": 0.04885548495201198,
+   "n_control": 29,
+   "n_control_at_least_observed": 6,
+   "empirical_p": 0.23333333333333334
+  },
+  "R3_high_state": {
+   "observed_excess": 0.026984708335724306,
+   "control_excess_mean": -0.0003045779408973058,
+   "control_excess_sd": 0.041329403938779104,
+   "n_control": 29,
+   "n_control_at_least_observed": 7,
+   "empirical_p": 0.26666666666666666
+  },
+  "R4_cycle_max": {
+   "observed_excess": 0.06413347322571117,
+   "control_excess_mean": 0.040706126197979066,
+   "control_excess_sd": 0.06041230293353532,
+   "n_control": 29,
+   "n_control_at_least_observed": 11,
+   "empirical_p": 0.4
+  }
+ },
+ "F_note": "The 29 control pairings share light curves and forecasts, so they are not independent; the smallest possible empirical p is 1/30.",
+ "G_two_sided_N2": {
+  "PL | R1_interior_max": {
+   "p_upper": 0.4565434565434565,
+   "p_lower": 0.6773226773226774,
+   "p_two_sided": 0.913086913086913
+  },
+  "PL | R2_local_max": {
+   "p_upper": 0.13186813186813187,
+   "p_lower": 0.9250749250749251,
+   "p_two_sided": 0.26373626373626374
+  },
+  "PL | R3_high_state": {
+   "p_upper": 0.7542457542457542,
+   "p_lower": 0.3226773226773227,
+   "p_two_sided": 0.6453546453546454
+  },
+  "PL | R4_cycle_max": {
+   "p_upper": 0.11588411588411589,
+   "p_lower": 0.919080919080919,
+   "p_two_sided": 0.23176823176823177
+  },
+  "BPL | R1_interior_max": {
+   "p_upper": 0.4125874125874126,
+   "p_lower": 0.7002997002997003,
+   "p_two_sided": 0.8251748251748252
+  },
+  "BPL | R2_local_max": {
+   "p_upper": 0.18281718281718282,
+   "p_lower": 0.903096903096903,
+   "p_two_sided": 0.36563436563436563
+  },
+  "BPL | R3_high_state": {
+   "p_upper": 0.975024975024975,
+   "p_lower": 0.05194805194805195,
+   "p_two_sided": 0.1038961038961039
+  },
+  "BPL | R4_cycle_max": {
+   "p_upper": 0.1798201798201798,
+   "p_lower": 0.8881118881118881,
+   "p_two_sided": 0.3596403596403596
+  }
+ },
+ "H_source_level": {
+  "published": {
+   "all": 7,
+   "none": 15,
+   "mixed": 8
+  },
+  "R1_interior_max": {
+   "all": 17,
+   "none": 5,
+   "mixed": 8
+  },
+  "R2_local_max": {
+   "all": 21,
+   "none": 1,
+   "mixed": 8
+  },
+  "R3_high_state": {
+   "all": 12,
+   "none": 10,
+   "mixed": 8
+  },
+  "R4_cycle_max": {
+   "all": 9,
+   "none": 11,
+   "mixed": 10
+  }
+ }
+}
+exit 0
