@@ -1,6 +1,33 @@
 # STATUS (kept current by the piloting agent)
 
-Last update: 2026-11-25, end of session 2. Branch `research-plan` (pushed). `main` is untouched.
+Last update: 2026-11-28, start of session 3. Branch `research-plan` (pushed). `main` is untouched.## Where this project is (plain-language summary, 2026-11-28)
+
+**Roughly 80% of the way to a submittable Part B paper.** Part C (the test of the new forecasts)
+cannot finish before 2030 because it waits for future Fermi data; its code is ready.
+
+**Finished**
+- The check that the original authors did not already do this work (they did not).
+- The main analysis (Part B). Result: the published rule cannot be reproduced, and under every
+  rule we tried the forecasts succeed about as often as chance.
+- An independent re-run that gives exactly the same numbers, and the explanation of the one
+  file whose fingerprint did not match (it only gained an extra exploratory rule).
+- Extra checks of the analysis itself; none changed a result.
+- Code to score the new forecasts, tested on made-up data only.
+- A full paper draft, with a list of where every number comes from, and verified references.
+
+**Next (in progress, session 3)**
+- A referee-style read of the draft, a second pass on every number and citation, and a few more
+  robustness checks, to bring the draft close to submission-ready.
+- Compiling the paper (no LaTeX on this Mac yet).
+
+**Needs the researcher**
+1. Read and commit `preregistration/2026-11-25_amendment_2.md` (still an untracked draft).
+2. Decide whether to register a stronger Part C test before 2027-01-28 (the registered one
+   has very little power).
+3. Decide whether to send the email to the original authors (`notes/email_penil_draft.md`).
+4. Choose the venue (short RNAAS note or full paper), the author list and the AI-use statement.
+
+
 
 ## How to resume
 1. `git checkout research-plan`; read this file.
